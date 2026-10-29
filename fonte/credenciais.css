@@ -454,3 +454,6 @@
 .s-tec .vitrine-t .painel-t>img{height:602px}
 .s-tec h2{width:540px;font-size:58px}
 .s-tec .itens-a{top:410px}
+.s-hub .mais-t{height:150px;padding:16px 12px 14px;border:2px dashed var(--linha-e);display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
+.s-hub .mais-t b{font-family:var(--titulo);font-weight:900;font-size:21px;line-height:1.04;text-transform:uppercase;color:var(--lime)}
+.s-hub .mais-t span{font-size:12.5px;line-height:1.35;opacity:.7}
