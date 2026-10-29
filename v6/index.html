@@ -9,7 +9,7 @@
 <meta property="og:description" content="Ideia boa é a que acontece. Quem somos, como trabalhamos e o que já entregamos.">
 <meta property="og:image" content="https://projetos.75lab.com.br/institucional-75lab/telas/001.jpg">
 <meta name="theme-color" content="#0e100d">
-<link rel="icon" href="assets/75lab-logo-lime.svg">
+<link rel="icon" href="../assets/75lab-logo-lime.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -84,7 +84,7 @@ a{text-decoration:none}
 <body>
 <header class="topo">
   <a class="marca" href="https://75lab.com.br" target="_blank" rel="noopener" aria-label="Site da 75 LAB">
-    <img src="assets/75lab-logo-lime.svg" alt="75 LAB">
+    <img src="../assets/75lab-logo-lime.svg" alt="75 LAB">
     <b>Credenciais</b>
     <span>Apresentação institucional</span>
   </a>
@@ -96,9 +96,9 @@ a{text-decoration:none}
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
     <span class="rot">Fale conosco</span>
   </a>
-  <a class="botao cheio" id="baixarPdf" href="{{PDF}}" download="Credenciais 75 LAB.pdf" title="Baixar a apresentação em PDF">
+  <a class="botao cheio" id="baixarPdf" href="Credenciais-V6.pdf" download="Credenciais 75 LAB.pdf" title="Baixar a apresentação em PDF">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-    <span class="rot">Baixar PDF</span> <small class="so-largo">{{PDF_MB}} MB</small>
+    <span class="rot">Baixar PDF</span> <small class="so-largo">10 MB</small>
   </a>
 </header>
 
@@ -123,11 +123,11 @@ a{text-decoration:none}
 
 <script>
 (() => {
-  const N = {{N}};
-  document.documentElement.style.setProperty('--ratio', '{{RATIO}}');
+  const N = 115;
+  document.documentElement.style.setProperty('--ratio', '1.7778');
   const num = (i) => String(i).padStart(3, '0');
-  const src = (i) => `telas/${num(i)}.jpg?v={{VERSAO}}`;
-  const mini = (i) => `telas/m/${num(i)}.jpg?v={{VERSAO}}`;
+  const src = (i) => `telas/${num(i)}.jpg?v=202610291801`;
+  const mini = (i) => `telas/m/${num(i)}.jpg?v=202610291801`;
   const img = document.getElementById('img');
   const ant = document.getElementById('ant'), prox = document.getElementById('prox');
   const contador = document.getElementById('contador'), progresso = document.getElementById('progresso');

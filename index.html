@@ -2,199 +2,473 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>75 LAB · Apresentação institucional</title>
-<meta name="description" content="Credenciais da 75 LAB: quem somos, o Método LAB, o 75 Partners e os projetos que já fizemos.">
-<meta property="og:title" content="75 LAB · Apresentação institucional">
-<meta property="og:description" content="Ideia boa é a que acontece. Quem somos, como trabalhamos e o que já entregamos.">
-<meta property="og:image" content="https://projetos.75lab.com.br/institucional-75lab/telas/001.jpg">
-<meta name="theme-color" content="#0e100d">
-<link rel="icon" href="assets/75lab-logo-lime.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta id="versaoDeck" content="20261029182047">
+<title>75 LAB · Credenciais</title>
+<meta name="description" content="Credenciais da 75 LAB, aceleradora de trade marketing: quem somos, o hub de soluções, o Método 75, números, clientes e cases.">
+<meta property="og:title" content="75 LAB · Credenciais">
+<meta property="og:description" content="Ideia boa é a que acontece. Quem somos, o que plugamos e a prova na gôndola.">
+<meta property="og:image" content="https://projetos.75lab.com.br/institucional-75lab/assets/og.jpg">
+<link rel="icon" href="assets/75lab-lime.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#0e100d;--ink-2:#171a15;--ink-3:#23271f;--paper:#f3f2ec;--lime:#c0ee4e;--muted:#9aa092;--titulo:'Big Shoulders Display',Impact,sans-serif;--texto:'Space Grotesk',system-ui,sans-serif;--mono:'Space Mono',ui-monospace,monospace;--barra:64px}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;background:var(--ink);color:var(--paper);font-family:var(--texto);-webkit-font-smoothing:antialiased;overflow:hidden}
-button,a{font:inherit;color:inherit;cursor:pointer}
-a{text-decoration:none}
-:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
-
-.topo{position:fixed;inset:0 0 auto 0;height:var(--barra);display:flex;align-items:center;gap:14px;padding:0 20px;z-index:5;background:linear-gradient(var(--ink) 60%,transparent)}
-.marca{display:flex;align-items:center;gap:12px;min-width:0;margin-right:auto}
-.marca img{height:26px;width:auto;flex:none}
-.marca b{font-family:var(--titulo);font-weight:900;font-size:22px;letter-spacing:.02em;text-transform:uppercase;white-space:nowrap}
-.marca span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.botao{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border:1px solid var(--ink-3);background:var(--ink-2);border-radius:999px;font-size:14px;font-weight:500;white-space:nowrap;transition:background .15s,border-color .15s,transform .15s}
-.botao:hover{border-color:var(--muted)}
-.botao:active{transform:translateY(1px)}
-.botao svg{width:18px;height:18px;flex:none}
-.botao.cheio{background:var(--lime);border-color:var(--lime);color:var(--ink);font-weight:700}
-.botao.cheio:hover{background:#d2f77a;border-color:#d2f77a}
-.botao small{font-family:var(--mono);font-size:11px;opacity:.65;font-weight:400}
-
-.palco{position:fixed;inset:var(--barra) 0 56px 0;display:flex;align-items:center;justify-content:center;padding:0 76px}
-.tela{position:relative;width:min(100%,calc((100vh - var(--barra) - 72px) * var(--ratio)));aspect-ratio:var(--ratio);background:var(--ink-2);box-shadow:0 30px 80px rgba(0,0,0,.45);overflow:hidden;touch-action:pan-y}
-.tela img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .25s ease}
-.tela img.saindo{opacity:0}
-.seta{position:absolute;top:50%;translate:0 -50%;width:52px;height:52px;border-radius:50%;border:1px solid var(--ink-3);background:var(--ink-2);display:grid;place-items:center;transition:background .15s,opacity .15s}
-.seta:hover{background:var(--ink-3)}
-.seta[aria-disabled=true]{opacity:.25;pointer-events:none}
-.seta svg{width:22px;height:22px}
-.seta.ant{left:14px}.seta.prox{right:14px}
-
-.rodape{position:fixed;inset:auto 0 0 0;height:56px;display:flex;align-items:center;gap:16px;padding:0 20px;z-index:5}
-.contador{font-family:var(--mono);font-size:13px;letter-spacing:.08em;min-width:84px}
-.contador b{color:var(--lime);font-weight:700}
-.trilho{flex:1;height:3px;background:var(--ink-3);border-radius:2px;overflow:hidden;cursor:pointer;position:relative}
-.trilho i{position:absolute;inset:0 auto 0 0;background:var(--lime);transition:width .25s ease}
-.dica{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
-
-.grade{position:fixed;inset:0;z-index:10;background:rgba(14,16,13,.97);overflow-y:auto;padding:84px 20px 40px;display:none}
-.grade.aberta{display:block}
-.grade header{position:fixed;inset:0 0 auto 0;height:var(--barra);display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:var(--ink);z-index:1}
-.grade header b{font-family:var(--titulo);font-weight:900;font-size:22px;text-transform:uppercase}
-.miniaturas{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;max-width:1500px;margin:0 auto}
-.miniaturas button{display:block;border:1px solid var(--ink-3);background:var(--ink-2);padding:0;position:relative;aspect-ratio:var(--ratio);overflow:hidden;transition:border-color .15s,transform .15s}
-.miniaturas button:hover{border-color:var(--lime);transform:translateY(-2px)}
-.miniaturas button.atual{border-color:var(--lime);box-shadow:0 0 0 2px var(--lime)}
-.miniaturas img{width:100%;height:100%;object-fit:cover;display:block}
-.miniaturas span{position:absolute;left:8px;bottom:8px;font-family:var(--mono);font-size:11px;background:var(--ink);padding:2px 6px}
-
-.so-largo{display:inline-flex}
-@media (max-width:900px){
-  :root{--barra:58px}
-  .marca span,.so-largo,.dica{display:none}
-  .botao{height:38px;padding:0 13px}
-  .botao .rot{display:none}
-  .botao.cheio .rot{display:inline}
-  .palco{padding:0 12px;inset:var(--barra) 0 76px 0}
-  .tela{width:100%}
-  .seta{top:auto;bottom:-64px;translate:none;width:44px;height:44px}
-  .seta.ant{left:calc(50% - 56px)}.seta.prox{right:calc(50% - 56px)}
-  .rodape{height:20px;bottom:6px}
-  .contador{display:none}
-  .miniaturas{grid-template-columns:repeat(2,1fr);gap:10px}
-}
-@media (max-width:420px){.marca b{font-size:19px}}
-@media print{.topo,.rodape,.seta{display:none}}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/deck.css?v=20261029182047">
+<script>
+// o GitHub Pages guarda o HTML por 10 min: se já existe versão nova, recarrega com ela
+fetch('versao.txt?t='+Date.now(),{cache:'no-store'}).then(r=>r.ok?r.text():'').then(v=>{v=v.trim();if(v&&v!==document.getElementById('versaoDeck').content&&!location.search.includes('v='+v)){const u=new URL(location.href);u.searchParams.set('v',v);location.replace(u);}}).catch(()=>{});
+</script>
 </head>
 <body>
-<header class="topo">
-  <a class="marca" href="https://75lab.com.br" target="_blank" rel="noopener" aria-label="Site da 75 LAB">
-    <img src="assets/75lab-logo-lime.svg" alt="75 LAB">
-    <b>Credenciais</b>
-    <span>Apresentação institucional</span>
-  </a>
-  <button class="botao so-largo" id="abrirGrade" type="button" title="Ver todas as telas (G)">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-    <span class="rot">Todas as telas</span>
-  </button>
-  <a class="botao" href="https://wa.me/5511986765634?text=Ol%C3%A1%2C%20vi%20a%20apresenta%C3%A7%C3%A3o%20institucional%20da%2075%20LAB%20e%20quero%20conversar." target="_blank" rel="noopener" title="Fale conosco no WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
-    <span class="rot">Fale conosco</span>
-  </a>
-  <a class="botao cheio" id="baixarPdf" href="Credenciais-75LAB.pdf" download="Credenciais 75 LAB.pdf" title="Baixar a apresentação em PDF">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-    <span class="rot">Baixar PDF</span> <small class="so-largo">10 MB</small>
-  </a>
-</header>
 
-<main class="palco">
-  <div class="tela" id="tela" aria-live="polite">
-    <img id="img" alt="">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-pincel" viewBox="0 0 48 48"><path d="M30 6l12 12-20 20H10V26zM25 11l12 12M10 38l-4 4"/></symbol>
+  <symbol id="i-fabrica" viewBox="0 0 48 48"><path d="M6 42V20l10 6v-6l10 6v-6l10 6V8h6v34zM13 35h5M23 35h5M33 35h5"/></symbol>
+  <symbol id="i-caminhao" viewBox="0 0 48 48"><path d="M4 11h24v21H4zM28 18h9l7 8v6H28z"/><circle cx="12" cy="36" r="4"/><circle cx="36" cy="36" r="4"/></symbol>
+  <symbol id="i-rede" viewBox="0 0 48 48"><rect x="19" y="19" width="10" height="10"/><rect x="5" y="5" width="8" height="8"/><rect x="35" y="5" width="8" height="8"/><rect x="5" y="35" width="8" height="8"/><rect x="35" y="35" width="8" height="8"/><path d="M13 13l6 6M35 13l-6 6M13 35l6-6M35 35l-6-6"/></symbol>
+  <symbol id="i-relogio" viewBox="0 0 48 48"><circle cx="24" cy="24" r="18"/><path d="M24 13v11l8 5"/></symbol>
+  <symbol id="i-escudo" viewBox="0 0 48 48"><path d="M24 4l16 6v12c0 10-7 18-16 22C15 40 8 32 8 22V10z"/><path d="M17 24l5 5 9-10"/></symbol>
+  <symbol id="i-olho" viewBox="0 0 48 48"><path d="M4 24s7-13 20-13 20 13 20 13-7 13-20 13S4 24 4 24z"/><circle cx="24" cy="24" r="6"/></symbol>
+  <symbol id="i-cadeado" viewBox="0 0 48 48"><rect x="10" y="22" width="28" height="20"/><path d="M16 22v-6a8 8 0 0 1 16 0v6M24 30v5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 48 48"><path d="M9 25l9 9 21-21"/></symbol>
+  <symbol id="i-x" viewBox="0 0 48 48"><path d="M12 12l24 24M36 12L12 36"/></symbol>
+  <symbol id="i-qr" viewBox="0 0 64 64"><rect x="8" y="8" width="18" height="18"/><rect x="38" y="8" width="18" height="18"/><rect x="8" y="38" width="18" height="18"/><path d="M14 14h6v6h-6zM44 14h6v6h-6zM14 44h6v6h-6zM38 38h6v6h-6zM50 50h6M50 38v6M38 50h6M44 44h6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 48 48"><path d="M24 44s14-13 14-24a14 14 0 0 0-28 0c0 11 14 24 14 24z"/><circle cx="24" cy="20" r="5"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 48 48"><path d="M6 15h36v25H6zM17 15l3-6h8l3 6"/><circle cx="24" cy="27" r="7"/></symbol>
+  <symbol id="i-calendario" viewBox="0 0 48 48"><path d="M6 10h36v32H6zM6 19h36M16 5v9M32 5v9M13 27h5M22 27h5M31 27h5M13 34h5M22 34h5"/></symbol>
+  <symbol id="i-grafico" viewBox="0 0 48 48"><path d="M7 7v34h35M13 33l9-10 6 6 12-14"/></symbol>
+  <symbol id="i-alvo" viewBox="0 0 48 48"><circle cx="24" cy="24" r="18"/><circle cx="24" cy="24" r="10"/><circle cx="24" cy="24" r="2"/></symbol>
+  <symbol id="i-pessoas" viewBox="0 0 48 48"><circle cx="17" cy="16" r="6"/><circle cx="33" cy="18" r="5"/><path d="M5 40c0-8 5-13 12-13s12 5 12 13M29 28c7 0 13 4 13 12"/></symbol>
+  <symbol id="i-raio" viewBox="0 0 48 48"><path d="M27 4L10 27h12l-3 17 19-25H26z"/></symbol>
+  <symbol id="i-loja" viewBox="0 0 48 48"><path d="M6 18l4-10h28l4 10zM8 18v24h32V18M20 42V30h8v12"/></symbol>
+  <symbol id="i-caixa" viewBox="0 0 48 48"><path d="M6 14l18-8 18 8v20l-18 8-18-8zM6 14l18 8 18-8M24 22v20"/></symbol>
+  <symbol id="i-arquivo" viewBox="0 0 48 48"><path d="M11 4h18l9 9v31H11zM28 4v10h10M17 25h14M17 32h14"/></symbol>
+  <symbol id="i-alerta" viewBox="0 0 48 48"><path d="M24 6l20 36H4zM24 19v11M24 35v2"/></symbol>
+  <symbol id="i-moeda" viewBox="0 0 48 48"><circle cx="24" cy="24" r="18"/><path d="M29 17h-7a4 4 0 0 0 0 8h4a4 4 0 0 1 0 8h-8M24 13v4M24 33v3"/></symbol>
+  <symbol id="i-cubo" viewBox="0 0 48 48"><path d="M24 4l18 10v20L24 44 6 34V14zM6 14l18 10 18-10M24 24v20"/></symbol>
+  <symbol id="i-sinal" viewBox="0 0 48 48"><circle cx="24" cy="30" r="3"/><path d="M16 22a11 11 0 0 1 16 0M10 16a19 19 0 0 1 28 0M24 33v10"/></symbol>
+  <symbol id="i-lupa" viewBox="0 0 48 48"><circle cx="20" cy="20" r="13"/><path d="M30 30l13 13"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 48 48"><path d="M6 6h18l18 18-18 18L6 24z"/><circle cx="15" cy="15" r="3"/></symbol>
+  <symbol id="i-pasta" viewBox="0 0 48 48"><path d="M5 10h14l4 5h20v25H5z"/></symbol>
+  <symbol id="i-versao" viewBox="0 0 48 48"><circle cx="12" cy="10" r="5"/><circle cx="12" cy="38" r="5"/><circle cx="36" cy="18" r="5"/><path d="M12 15v18M36 23c0 9-12 6-21 13"/></symbol>
+  <symbol id="i-nota" viewBox="0 0 48 48"><path d="M10 4h28v40l-5-4-5 4-4-4-5 4-4-4-5 4zM17 16h14M17 24h14M17 32h8"/></symbol>
+  <symbol id="i-seta" viewBox="0 0 48 48"><path d="M7 24h32M29 14l10 10-10 10"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 48 48"><path d="M6 8h36v24H20l-9 8v-8H6z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 48 48"><path d="M5 10h38v28H5zM5 10l19 16 19-16"/></symbol>
+  <symbol id="i-fone" viewBox="0 0 48 48"><path d="M10 6h8l4 10-5 4c2 5 6 9 11 11l4-5 10 4v8c0 2-2 4-4 4C20 42 6 28 6 10c0-2 2-4 4-4z"/></symbol>
+  <symbol id="i-clique" viewBox="0 0 48 48"><path d="M19 26V9a4 4 0 0 1 8 0v13l9 2c3 .7 5 3.6 4.4 6.6L39 39c-.5 3-3 5-6 5H24c-2 0-3.8-1-5-2.6L11 31c-1.4-2 0-4.8 2.4-4.8 1 0 2 .4 2.7 1.2L19 30"/><path d="M8 12l4 2M10 4l3 4M18 1v4"/></symbol>
+  <symbol id="i-funil" viewBox="0 0 48 48"><path d="M5 7h38L28 25v15l-8 4V25z"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 48 48"><path d="M17 4v10M31 4v10M11 14h26v8a13 13 0 0 1-26 0zM24 35v9"/></symbol>
+  <symbol id="i-whats" viewBox="0 0 48 48"><path d="M8 40l3-9a17 17 0 1 1 6 6z"/><path d="M18 17c0 7 6 13 13 13l2-4-4-2-2 2c-2-1-4-3-5-5l2-2-2-4z"/></symbol>
+  <symbol id="i-estrela" viewBox="0 0 48 48"><path d="M24 5l5.6 12.4L43 19l-10 9.3L35.6 42 24 35.3 12.4 42 15 28.3 5 19l13.4-1.6z"/></symbol>
+  <symbol id="i-palco" viewBox="0 0 48 48"><path d="M4 40h40M8 40V18h32v22M8 18l6-10h20l6 10M20 40V28h8v12"/></symbol>
+  <symbol id="i-presente" viewBox="0 0 48 48"><path d="M6 18h36v8H6zM9 26h30v16H9zM24 18v24M24 18c-3-8-12-8-10-2 1 3 10 2 10 2zM24 18c3-8 12-8 10-2-1 3-10 2-10 2z"/></symbol>
+  <symbol id="i-mega" viewBox="0 0 48 48"><path d="M6 20v10h8l18 10V10L14 20zM14 30l3 12h6l-3-12M38 18a8 8 0 0 1 0 14"/></symbol>
+  <symbol id="i-tela" viewBox="0 0 48 48"><rect x="5" y="8" width="38" height="26"/><path d="M17 42h14M24 34v8"/></symbol>
+  <symbol id="i-boneco" viewBox="0 0 48 48"><circle cx="24" cy="10" r="5"/><path d="M14 44l4-16h12l4 16M18 28l-4-10h20l-4 10M24 18v10"/></symbol>
+</svg>
+
+<div id="wrap"><div id="stage" class="t-escuro capa">
+
+<!-- ===================================================== 01 capa -->
+<section id="capa" class="tela s-capa ativa" data-tema="escuro" data-titulo="Capa" data-cap="">
+  <div class="mosaico sangra" aria-hidden="true">
+    <div class="col c1"><img src="assets/cases/c/g01.jpg" alt=""><img src="assets/cases/c/g20.jpg" alt=""><img src="assets/cases/c/g48.jpg" alt=""><img src="assets/cases/c/g62.jpg" alt=""><img src="assets/cases/c/g01.jpg" alt=""><img src="assets/cases/c/g20.jpg" alt=""></div>
+    <div class="col c2"><img src="assets/cases/c/g50.jpg" alt=""><img src="assets/cases/c/g05.jpg" alt=""><img src="assets/cases/c/g16.jpg" alt=""><img src="assets/cases/c/g70.jpg" alt=""><img src="assets/cases/c/g50.jpg" alt=""><img src="assets/cases/c/g05.jpg" alt=""></div>
+    <div class="col c3"><img src="assets/cases/c/g14.jpg" alt=""><img src="assets/cases/c/g40.jpg" alt=""><img src="assets/cases/c/g60.jpg" alt=""><img src="assets/cases/c/g30.jpg" alt=""><img src="assets/cases/c/g14.jpg" alt=""><img src="assets/cases/c/g40.jpg" alt=""></div>
   </div>
-  <button class="seta ant" id="ant" type="button" aria-label="Tela anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
-  <button class="seta prox" id="prox" type="button" aria-label="Próxima tela"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
-</main>
-
-<footer class="rodape">
-  <span class="contador" id="contador"></span>
-  <div class="trilho" id="trilho" title="Ir para um ponto da apresentação"><i id="progresso"></i></div>
-  <span class="dica">Use as setas do teclado · G mostra todas</span>
-</footer>
-
-<section class="grade" id="grade" aria-label="Todas as telas">
-  <header><b>Todas as telas</b><button class="botao" id="fecharGrade" type="button">Fechar</button></header>
-  <div class="miniaturas" id="miniaturas"></div>
+  <span class="eyebrow anima">Credenciais 2026 · Aceleradora de trade marketing</span>
+  <h1 class="anima d1">Ideia boa<br>é a que<br><span class="onda t-lime">acontece.</span></h1>
+  <p class="lead anima d2">A distância entre a intenção da sua marca e a gôndola tem um nome. A 75 LAB existe para fechar essa distância, do evento ao ponto de venda.</p>
+  <div class="acoes anima d3">
+    <button class="botao cheio seta" data-ir="2" data-cursor="Começar">Conhecer a 75 LAB</button>
+    <a class="botao" href="Credenciais-75LAB.pdf" download="Credenciais 75 LAB.pdf" data-cursor="Baixar">Baixar em PDF</a>
+  </div>
+  <div class="selo-giro anima zoom d4" aria-hidden="true">
+    <svg viewBox="0 0 200 200"><defs><path id="circ" d="M100 100m-78 0a78 78 0 1 1 156 0a78 78 0 1 1-156 0"/></defs><text textLength="486" lengthAdjust="spacing"><textPath href="#circ" textLength="486" lengthAdjust="spacing">ideia boa é a que acontece · ideia boa é a que acontece ·</textPath></text></svg>
+    <img src="assets/75lab-lime.png" alt="">
+  </div>
+  <div class="numeros-capa anima d4">
+    <div><b class="num">+<span data-conta="15">0</span></b><span>anos no trade</span></div>
+    <div><b class="num"><span data-conta="15000">0</span>+</b><span>PDVs positivados</span></div>
+    <div><b class="num"><span data-conta="95">0</span>%</b><span>projetos aprovados</span></div>
+  </div>
 </section>
 
-<script>
-(() => {
-  const N = 115;
-  document.documentElement.style.setProperty('--ratio', '1.7778');
-  const num = (i) => String(i).padStart(3, '0');
-  const src = (i) => `telas/${num(i)}.jpg?v=202610291801`;
-  const mini = (i) => `telas/m/${num(i)}.jpg?v=202610291801`;
-  const img = document.getElementById('img');
-  const ant = document.getElementById('ant'), prox = document.getElementById('prox');
-  const contador = document.getElementById('contador'), progresso = document.getElementById('progresso');
-  const grade = document.getElementById('grade'), miniaturas = document.getElementById('miniaturas');
-  const cache = {};
-  const carregar = (i) => { if (i >= 1 && i <= N && !cache[i]) { cache[i] = new Image(); cache[i].src = src(i); } };
-  let atual = 0;
+<!-- ===================================================== 02 resumo -->
+<section id="resumo" class="tela s-res" data-tema="claro" data-titulo="A 75 LAB em um minuto" data-cap="(01) Por que existimos">
+  <span class="destaque-cap anima">Em um minuto</span>
+  <h2 class="anima d1">Uma aceleradora de trade <span class="onda t-teal">que pluga a solução certa.</span></h2>
+  <div class="quatro anima d2">
+    <div class="bl"><span class="n">01 · Quem somos</span><b>Os dois lados do balcão</b><p>Sócios vindos da indústria e do varejo. Falamos ROI, margem, sell-out e positivação, porque já estivemos dos dois lados da mesa.</p></div>
+    <div class="bl"><span class="n">02 · O que fazemos</span><b>Hub de soluções</b><strong>8</strong><em>frentes plugáveis</em><p>Do evento à gôndola: stand, PDV, promoção, incentivo, retail media, promotoria e digital.</p></div>
+    <div class="bl"><span class="n">03 · Como entregamos</span><b>Método 75 + rede</b><p>Seis passos da imersão à execução, com a rede 75 Partners e governança de ponta a ponta, sem markup oculto.</p></div>
+    <div class="bl"><span class="n">04 · A prova</span><b>Na gôndola</b><strong>84</strong><em>cases publicados</em><p>Mais de 15 mil PDVs positivados e 95% dos projetos aprovados.</p></div>
+  </div>
+  <div class="faixa-res anima d3">
+    <div><svg class="ic"><use href="#i-alvo"/></svg>Projeto com escopo, prazo e preço fechados, terminando em algo que fica com a sua marca.</div>
+    <div><svg class="ic"><use href="#i-moeda"/></svg>Produção comprada direto do fornecedor certo: até 25% a menos no custo.</div>
+    <div><svg class="ic"><use href="#i-raio"/></svg>Tecnologia própria: gestão no Ariuno, realidade aumentada e rastreio de PDV.</div>
+  </div>
+  <p class="fonte">Números da 75 LAB · fonte: 75lab.com.br.</p>
+</section>
 
-  function ir(i, empurrar = true) {
-    i = Math.max(1, Math.min(N, i | 0 || 1));
-    if (i === atual) return;
-    atual = i;
-    carregar(i);
-    const novo = cache[i];
-    const trocar = () => { img.src = novo.src; img.alt = `Tela ${i} de ${N}`; img.classList.remove('saindo'); };
-    img.classList.add('saindo');
-    if (novo.complete) setTimeout(trocar, 120); else novo.onload = novo.onerror = trocar;
-    contador.innerHTML = `<b>${num(i).slice(1)}</b> / ${N}`;
-    progresso.style.width = `${(i / N) * 100}%`;
-    ant.setAttribute('aria-disabled', i === 1); prox.setAttribute('aria-disabled', i === N);
-    [i + 1, i + 2, i + 3, i - 1].forEach(carregar);
-    if (empurrar) history.replaceState(null, '', `#${i}`);
-    miniaturas.querySelector('.atual')?.classList.remove('atual');
-    miniaturas.children[i - 1]?.classList.add('atual');
-  }
+<!-- ===================================================== 03 a distância -->
+<section id="distancia" class="tela s-dist" data-tema="escuro" data-titulo="A distância tem um nome" data-cap="(01) Por que existimos" data-estados=".modos button">
+  <span class="eyebrow anima"><b>(01)</b> Por que existimos</span>
+  <h2 class="anima d1">Entre a intenção e a gôndola, <span class="t-lime">muita ideia boa se perde.</span></h2>
+  <div class="modos anima d2">
+    <button class="on" data-m="trad" data-cursor="Ver">Modelo tradicional</button>
+    <button data-m="lab" data-cursor="Ver">Modelo 75 LAB</button>
+  </div>
+  <span class="cta so-tela"><svg class="ic"><use href="#i-clique"/></svg>Clique para comparar</span>
+  <div class="regua anima d3" data-modo="trad">
+    <div class="ponta ini"><span class="eyebrow">Ponto de partida</span><b>Intenção</b></div>
+    <div class="ponta fim"><span class="eyebrow">Destino</span><b>Gôndola</b></div>
+    <svg class="trilho" viewBox="0 0 1000 220" preserveAspectRatio="none" aria-hidden="true">
+      <path class="tr-trad" d="M0 110 C120 110 140 60 220 70 S330 170 420 150 S540 40 620 90 S760 210 850 200"/>
+      <path class="tr-lab" d="M0 110 L1000 110"/>
+    </svg>
+    <ol class="paradas trad">
+      <li style="--x:14%"><b>Briefing</b><span>a ideia chega pela metade</span></li>
+      <li style="--x:36%"><b>Retrabalho</b><span>criação sem saber produzir</span></li>
+      <li style="--x:58%"><b>Atraso</b><span>fornecedor errado, prazo estourado</span></li>
+      <li class="x" style="--x:82%"><b>Verba evapora</b><span>a peça não chega, ou chega torta</span></li>
+    </ol>
+    <ol class="paradas lab">
+      <li style="--x:12%"><b>Imersão</b><span>marca, canal e shopper</span></li>
+      <li style="--x:34%"><b>Solução</b><span>validada antes de produzir</span></li>
+      <li style="--x:56%"><b>Produção</b><span>fornecedor certo, sem markup</span></li>
+      <li style="--x:78%"><b>Execução</b><span>na loja, medida</span></li>
+      <li class="ok" style="--x:96%"><b>Resultado</b><span>venda e presença</span></li>
+    </ol>
+  </div>
+  <p class="fecho anima d4">Não somos uma agência tradicional. Somos uma aceleradora de trade marketing: a ideia só conta quando acontece no ponto de venda.</p>
+</section>
 
-  for (let i = 1; i <= N; i++) {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.innerHTML = `<img loading="lazy" src="${mini(i)}" alt="Tela ${i}"><span>${i}</span>`;
-    b.onclick = () => { ir(i); fechar(); };
-    miniaturas.appendChild(b);
-  }
-  const abrir = () => { grade.classList.add('aberta'); miniaturas.children[atual - 1]?.scrollIntoView({ block: 'center' }); };
-  const fechar = () => grade.classList.remove('aberta');
-  document.getElementById('abrirGrade').onclick = abrir;
-  document.getElementById('fecharGrade').onclick = fechar;
+<!-- ===================================================== 04 os dois lados do balcão -->
+<section id="balcao" class="tela s-balc" data-tema="claro" data-titulo="Os dois lados do balcão" data-cap="(02) Quem somos">
+  <span class="eyebrow anima"><b>(02)</b> Quem somos</span>
+  <h2 class="anima d1">Os dois lados do balcão, <span class="onda t-teal">na mesma mesa.</span></h2>
+  <div class="foto-duo anima zoom d2"><img src="assets/img/caique-daniel.webp" alt="Daniel Coimbra e Caique Becker, cofundadores da 75 LAB"></div>
+  <div class="lado ind anima esq d3">
+    <span class="tag">Veio da indústria</span>
+    <h3>Daniel Coimbra</h3>
+    <em>Cofundador · CEO</em>
+    <b class="num"><span data-conta="20">0</span><small> anos</small></b>
+    <p>de trade marketing do lado de quem vende para o varejo: lançamento, gestão de categoria e P&amp;L.</p>
+  </div>
+  <div class="lado var anima dir d3">
+    <span class="tag">Veio do varejo</span>
+    <h3>Caique Becker</h3>
+    <em>Cofundador · Head de Trade</em>
+    <b class="num"><span data-conta="15">0</span><small> anos</small></b>
+    <p>de varejo do lado de quem opera a loja: layout, execução no ponto e a régua de aprovação das ações da indústria.</p>
+  </div>
+  <div class="tampo anima d4" aria-hidden="true"><span>Indústria</span><i>valor para os dois lados</i><span>Varejo</span></div>
+  <div class="passagem anima d5"><span class="eyebrow">Por onde passamos</span><div class="nomes"><span>Kraft</span><span>Mondelez</span><span>Unilever</span><span>Whirlpool</span><span>GPA</span><span>Extra</span><span>Minuto Pão de Açúcar</span></div></div>
+</section>
 
-  ant.onclick = () => ir(atual - 1);
-  prox.onclick = () => ir(atual + 1);
-  document.getElementById('tela').addEventListener('click', (e) => {
-    const r = e.currentTarget.getBoundingClientRect();
-    ir(e.clientX - r.left < r.width * 0.3 ? atual - 1 : atual + 1);
-  });
-  document.getElementById('trilho').addEventListener('click', (e) => {
-    const r = e.currentTarget.getBoundingClientRect();
-    ir(Math.ceil(((e.clientX - r.left) / r.width) * N));
-  });
-  addEventListener('keydown', (e) => {
-    if (e.metaKey || e.ctrlKey || e.altKey) return;
-    if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); ir(atual + 1); }
-    else if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); ir(atual - 1); }
-    else if (e.key === 'Home') ir(1);
-    else if (e.key === 'End') ir(N);
-    else if (e.key === 'g' || e.key === 'G') grade.classList.contains('aberta') ? fechar() : abrir();
-    else if (e.key === 'Escape') fechar();
-  });
-  let x0 = null;
-  addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
-  addEventListener('touchend', (e) => {
-    if (x0 === null || grade.classList.contains('aberta')) return;
-    const dx = e.changedTouches[0].clientX - x0; x0 = null;
-    if (Math.abs(dx) > 45) ir(dx < 0 ? atual + 1 : atual - 1);
-  });
-  addEventListener('hashchange', () => ir(parseInt(location.hash.slice(1)), false));
-  ir(parseInt(location.hash.slice(1)) || 1, false);
-})();
-</script>
+<!-- ===================================================== 05 manifesto -->
+<section id="manifesto" class="tela s-man" data-tema="lime" data-titulo="Criamos o que gostaríamos de ter tido" data-cap="(02) Quem somos">
+  <span class="eyebrow anima">Por que a 75 LAB existe</span>
+  <blockquote class="anima d1">“Criamos o que <span class="apagada">gostaríamos</span> de ter tido como clientes.”</blockquote>
+  <cite class="anima d2">Daniel Coimbra · CEO 75 LAB</cite>
+  <ol class="principios anima d3" data-seq>
+    <li><i>01</i>Vivemos o trade, não só aprendemos.</li>
+    <li><i>02</i>Solução certa, nunca de prateleira.</li>
+    <li><i>03</i>Para cada desafio, a equipe certa.</li>
+    <li><i>04</i>Prova acima de promessa.</li>
+  </ol>
+  <div class="imprensa anima dir d3">
+    <span class="eyebrow">Na imprensa</span>
+    <a class="mat" href="https://propmark.com.br/artigos/criamos-o-que-gostariamos-de-ter-tido-como-clientes/" target="_blank" rel="noopener" data-cursor="Ler">
+      <img src="assets/imprensa/propmark.webp" alt="Artigo de Daniel Coimbra na Propmark">
+      <span><b>Propmark</b>“A grande agência tradicional aprendeu trade marketing. Nós vivemos isso.”<small class="so-tela">Clique para ler ↗</small><small class="so-pdf">propmark.com.br</small></span>
+    </a>
+    <a class="mat" href="https://gironews.com/opinioes/a-loja-me-ensinou-o-que-nenhuma-apresentacao-ensinava/" target="_blank" rel="noopener" data-cursor="Ler">
+      <img src="assets/imprensa/giro.webp" alt="Artigo de Caique Becker na Giro News">
+      <span><b>Giro News</b>“Execução não é consequência da estratégia. Execução é parte da estratégia.”<small class="so-tela">Clique para ler ↗</small><small class="so-pdf">gironews.com</small></span>
+    </a>
+  </div>
+</section>
+
+<!-- ===================================================== 06 hub de soluções -->
+<section id="hub" class="tela s-hub" data-tema="escuro" data-titulo="Hub de soluções" data-cap="(03) O que fazemos" data-estados=".tomadas button">
+  <span class="eyebrow anima"><b>(03)</b> O que fazemos</span>
+  <h2 class="anima d1">Plugamos a solução<br><span class="t-lime">que a sua marca precisa.</span></h2>
+  <p class="lead anima d2">Trade marketing vai muito além do PDV. Conectamos o que a sua intenção comercial pede, do evento à gôndola.</p>
+  <div class="regua-t anima d3">
+    <div class="filtro-t"><img src="assets/75lab-lime.png" alt="75 LAB"><i></i></div>
+    <div class="tomadas">
+      <button class="on" data-s="0" data-cursor="Plugar"><svg class="ic"><use href="#i-loja"/></svg><b>Material de PDV</b></button>
+      <button data-s="1" data-cursor="Plugar"><svg class="ic"><use href="#i-palco"/></svg><b>Stand</b></button>
+      <button data-s="2" data-cursor="Plugar"><svg class="ic"><use href="#i-pessoas"/></svg><b>Eventos</b></button>
+      <button data-s="3" data-cursor="Plugar"><svg class="ic"><use href="#i-estrela"/></svg><b>Ativação</b></button>
+      <button data-s="4" data-cursor="Plugar"><svg class="ic"><use href="#i-tag"/></svg><b>Promoção</b></button>
+      <button data-s="5" data-cursor="Plugar"><svg class="ic"><use href="#i-presente"/></svg><b>Incentivo</b></button>
+      <button data-s="6" data-cursor="Plugar"><svg class="ic"><use href="#i-tela"/></svg><b>Retail media e digital</b></button>
+      <button data-s="7" data-cursor="Plugar"><svg class="ic"><use href="#i-boneco"/></svg><b>Promotoria</b></button>
+    </div>
+  </div>
+  <span class="cta so-tela"><svg class="ic"><use href="#i-clique"/></svg>Clique em cada solução para plugar</span>
+  <div class="plugado anima dir d3">
+    <figure id="hubFoto"><img src="assets/cases/c/g20.jpg" alt=""></figure>
+    <div class="info"><span class="eyebrow" id="hubN">Plugado · 01 de 08</span><h3 id="hubT">Material de PDV</h3><p id="hubP"></p><span class="ex" id="hubEx"></span></div>
+  </div>
+  <template id="hubDados">
+    <i data-t="Material de PDV" data-f="assets/cases/c/g20.jpg" data-ex="Unilever · display cash">Enxoval, display, ponta de gôndola e embalagem promocional. Material certo, no prazo, desenhado para ser produzido sem retrabalho.</i>
+    <i data-t="Stand" data-f="assets/cases/c/g01.jpg" data-ex="Alltak · Future Print">Presença marcante em feiras e convenções, do projeto 3D à montagem, com cronograma de aprovação desde a primeira reunião.</i>
+    <i data-t="Eventos" data-f="assets/cases/c/g62.jpg" data-ex="Alltak · convenção">Convenção, endomarketing, Black Friday e inauguração: experiências que aproximam canal, time e shopper.</i>
+    <i data-t="Ativação" data-f="assets/cases/c/g48.jpg" data-ex="O Boticário · display modular">Ponto de experiência e display modular que fazem o shopper parar, provar e levar.</i>
+    <i data-t="Promoção" data-f="assets/cases/c/g70.jpg" data-ex="LG · promoção cashback">Mecânicas que geram giro e conversão, com a peça de loja que explica a promoção em três segundos.</i>
+    <i data-t="Incentivo" data-f="assets/cases/c/g69.jpg" data-ex="Whirlpool · Top Trade">Programas de incentivo e loyalty para equipe, canal e força de vendas, com regra clara e brinde que dá vontade.</i>
+    <i data-t="Retail media e digital" data-f="assets/cases/c/g80.jpg" data-ex="Whirlpool · loja perfeita online">A marca nos canais de mídia do varejo, vitrine virtual, CRM e plataforma de treinamento.</i>
+    <i data-t="Promotoria" data-f="assets/cases/c/g45.jpg" data-ex="Grupo Pereira · ponto de experiência">Time de campo executando na ponta, com checklist, foto e auditoria do que foi instalado.</i>
+  </template>
+</section>
+
+<!-- ===================================================== 07 a rede -->
+<section id="rede" class="tela s-rede" data-tema="claro2" data-titulo="Uma rede, não um fornecedor" data-cap="(03) O que fazemos">
+  <span class="eyebrow anima"><b>(03)</b> Hub de especialistas · 75 Partners</span>
+  <h2 class="anima d1">O cliente não compra uma entrega. <span class="onda t-teal">Acessa uma rede.</span></h2>
+  <div class="grafo anima zoom d2" aria-hidden="true">
+    <svg viewBox="0 0 760 640"><g class="fios">
+      <path d="M380 320L380 70"/><path d="M380 320L600 140"/><path d="M380 320L690 330"/><path d="M380 320L600 520"/><path d="M380 320L380 590"/><path d="M380 320L160 520"/><path d="M380 320L70 330"/><path d="M380 320L160 140"/>
+    </g></svg>
+    <div class="centro"><b class="num">+<span data-conta="75">0</span></b><span>fornecedores homologados</span></div>
+    <span class="no" style="left:380px;top:70px">Gráfica</span>
+    <span class="no" style="left:600px;top:140px">Marcenaria</span>
+    <span class="no" style="left:690px;top:330px">Metalurgia</span>
+    <span class="no" style="left:600px;top:520px">Cenografia</span>
+    <span class="no" style="left:380px;top:590px">Brindes</span>
+    <span class="no" style="left:160px;top:520px">Promotoria</span>
+    <span class="no" style="left:70px;top:330px">Logística</span>
+    <span class="no" style="left:160px;top:140px">3D e AR</span>
+  </div>
+  <ol class="regras anima d3" data-seq>
+    <li><svg class="ic"><use href="#i-rede"/></svg><div><b>Se já está no ecossistema, conectamos.</b><span>Fornecedor homologado por vocês entra na rede, sem atrito.</span></div></li>
+    <li><svg class="ic"><use href="#i-lupa"/></svg><div><b>Se ainda não, buscamos e trazemos.</b><span>Você não depende de um único parceiro para prazo, qualidade e custo.</span></div></li>
+    <li><svg class="ic"><use href="#i-escudo"/></svg><div><b>Governança ponta a ponta.</b><span>Da especificação técnica à implantação, você vê cada etapa. Sem markup oculto.</span></div></li>
+  </ol>
+  <p class="fonte">Números da 75 LAB · rede 75 Partners, credenciais 75 LAB.</p>
+</section>
+
+<!-- ===================================================== 08 método 75 -->
+<section id="metodo" class="tela s-met" data-tema="escuro" data-titulo="Método 75" data-cap="(03) O que fazemos">
+  <span class="eyebrow anima"><b>(03)</b> O Método 75</span>
+  <h2 class="anima d1">Seis passos <span class="t-lime">até o ponto de venda.</span></h2>
+  <svg class="caminho anima d2" viewBox="0 0 1460 420" preserveAspectRatio="none" aria-hidden="true"><path id="caminhoM" d="M30 330 C200 330 210 110 380 110 S560 330 730 330 S900 110 1080 110 S1260 330 1430 330"/><circle class="viajante" r="10"><animateMotion dur="9s" repeatCount="indefinite"><mpath href="#caminhoM"/></animateMotion></circle></svg>
+  <ol class="estacoes" data-seq>
+    <li class="anima" style="left:0;top:470px"><i>01</i><b>Imersão</b><span>Marca, canal, produto e shopper. Entender a intenção comercial real e os custos absorvidos.</span></li>
+    <li class="anima" style="left:262px;top:250px"><i>02</i><b>Laboratório</b><span>Caminhos desenhados e testados. Validação antes de produzir.</span></li>
+    <li class="anima" style="left:524px;top:470px"><i>03</i><b>Especialistas</b><span>O time certo para cada projeto, acionado na hora certa.</span></li>
+    <li class="anima" style="left:786px;top:250px"><i>04</i><b>Estratégia e design</b><span>Criação com função comercial: estética a serviço da conversão.</span></li>
+    <li class="anima" style="left:1048px;top:470px"><i>05</i><b>Produção</b><span>Material e logística tratados como estratégia, com controle do início ao fim.</span></li>
+    <li class="anima fim" style="left:1310px;top:250px"><i>06</i><b>Execução no PDV</b><span>Venda, penetração e presença, com impacto medido no shopper.</span></li>
+  </ol>
+  <p class="fecho anima d5">Não criamos nada antes de uma imersão: o processo elimina o achismo e garante soluções baseadas em dados e realidade de campo.</p>
+</section>
+
+<!-- ===================================================== 09 custo -->
+<section id="custo" class="tela s-cus" data-tema="claro" data-titulo="Design to cost" data-cap="(03) O que fazemos">
+  <span class="eyebrow anima"><b>(03)</b> Inteligência de produção</span>
+  <h2 class="anima d1">Seu investimento vai para resultado, <span class="onda t-teal">não para taxa.</span></h2>
+  <div class="comparativo anima d2">
+    <div class="linha-c"><span class="rot">Modelo tradicional</span>
+      <div class="barra-c"><i class="cri" style="--w:22%">Criação</i><i class="pro" style="--w:56%">Produção</i><i class="mk" style="--w:22%">Markup sobre a produção</i></div></div>
+    <div class="linha-c lab"><span class="rot">Modelo 75 LAB</span>
+      <div class="barra-c"><i class="cri" style="--w:22%">Criação</i><i class="pro" style="--w:42%">Produção otimizada</i><i class="eco" style="--w:36%"><b class="num">−<span data-conta="25">0</span>%</b> no custo de produção</i></div></div>
+    <span class="ilust">Ilustrativo: proporções para explicar o modelo</span>
+  </div>
+  <div class="alavancas anima d3" data-seq>
+    <div><svg class="ic g vivo"><use href="#i-fabrica"/></svg><b>Engenharia antes de produzir</b><p>Olhamos o projeto com olho de indústria: formato, material e processo ajustados para reduzir custo e desperdício.</p></div>
+    <div><svg class="ic g vivo"><use href="#i-moeda"/></svg><b>Fim do markup de produção</b><p>Pelo 75 Partners a produção é vendida direto. Não somamos taxa de agência em cima do custo gráfico.</p></div>
+    <div><svg class="ic g vivo"><use href="#i-alvo"/></svg><b>Fornecedor certo para cada peça</b><p>Cada material vai para quem faz melhor e mais barato. Em média, 25% a menos no custo de produção.</p></div>
+  </div>
+  <p class="fonte">Números da 75 LAB · redução média de custo de produção com o fornecedor certo, fonte: 75lab.com.br.</p>
+</section>
+
+<!-- ===================================================== 10 números (cupom) -->
+<section id="numeros" class="tela s-cupom" data-tema="claro2" data-titulo="A 75 LAB em números" data-cap="(04) Provas">
+  <span class="eyebrow anima"><b>(04)</b> Números da 75 LAB</span>
+  <h2 class="anima d1">Prova acima <span class="onda t-teal">de promessa.</span></h2>
+  <p class="lead anima d2">Doze meses da nossa operação, tirados do sistema em que a 75 LAB trabalha todos os dias.</p>
+  <div class="heroi anima d3"><b class="num"><span data-conta="15000">0</span>+</b><span>PDVs positivados</span></div>
+  <div class="heroi h2 anima d4"><b class="num"><span data-conta="95">0</span>%</b><span>dos projetos aprovados</span></div>
+  <div class="cupom anima zoom d2">
+    <div class="topo-c"><img src="assets/75lab-black.png" alt="75 LAB"><span>75 LAB ESTRATÉGIA, DESIGN E PRODUÇÃO LTDA</span><span>CNPJ 55.470.982/0001-77</span><span class="tracos"></span><b>CUPOM DE OPERAÇÃO · 12 MESES</b><span>28/10/2025 a 27/10/2026</span><span class="tracos"></span></div>
+    <ol class="itens" data-seq>
+      <li><span>Entregas concluídas</span><b data-conta="1811">0</b></li>
+      <li><span>Jobs de ponta a ponta</span><b data-conta="513">0</b></li>
+      <li><span>Clientes com demanda</span><b data-conta="94">0</b></li>
+      <li><span>Jobs ativos no pico</span><b data-conta="122">0</b></li>
+      <li><span>Clientes em paralelo</span><b data-conta="52">0</b></li>
+      <li><span>Prazo mediano, baixa complex.</span><b>8 dias úteis</b></li>
+      <li><span>Prazo mediano, alta complex.</span><b>41 dias úteis</b></li>
+      <li><span>Horas apontadas por mês</span><b>1.070 h</b></li>
+    </ol>
+    <div class="total"><span class="tracos"></span><div><b>Anos no trade</b><b>+15</b></div><span class="cod">||| |||| | ||||| || ||| | |||| |||</span><span>Ideia boa é a que acontece.</span></div>
+  </div>
+  <p class="fonte">Dados da própria 75 LAB, não de cliente. Fonte: Ariuno, sistema de gestão da 75 LAB · 28/10/2025 a 27/10/2026 · horas de jul a set/2026 · PDVs e aprovação: 75lab.com.br.</p>
+</section>
+
+<!-- ===================================================== 11 clientes -->
+<section id="clientes" class="tela s-mar" data-tema="claro" data-titulo="Marcas que aceleraram com a gente" data-cap="(04) Provas">
+  <span class="eyebrow anima"><b>(04)</b> Clientes</span>
+  <h2 class="anima d1">Marcas e redes que já <span class="onda t-teal">aceleraram com a gente.</span></h2>
+  <div class="esteiras anima d2">
+    <div class="esteira"><span class="rot"><svg class="ic p"><use href="#i-caixa"/></svg>Alimentos e bebidas</span><div class="vai"><div class="faixa"><img src="assets/clientes/unilever.png" alt="Unilever"><img src="assets/clientes/seara.png" alt="Seara"><img src="assets/clientes/lactalis.png" alt="Lactalis"><img src="assets/clientes/parmalat.png" alt="Parmalat"><img src="assets/clientes/polenghi.png" alt="Polenghi"><img src="assets/clientes/hersheys.png" alt="Hershey’s"><img src="assets/clientes/3coracoes.png" alt="3 Corações"><img src="assets/clientes/madalena.png" alt="Madalena"><img src="assets/clientes/evino.png" alt="Evino"><img src="assets/clientes/grand-cru.png" alt="Grand Cru"></div></div></div>
+    <div class="esteira volta"><span class="rot"><svg class="ic p"><use href="#i-loja"/></svg>Varejo, beleza e farma</span><div class="vai"><div class="faixa"><img src="assets/clientes/boticario.png" alt="O Boticário"><img src="assets/clientes/eudora.png" alt="Eudora"><img src="assets/clientes/berenice.png" alt="Quem disse, Berenice?"><img src="assets/clientes/dpsp.png" alt="Grupo DPSP"><img src="assets/clientes/drogasp.png" alt="Drogaria São Paulo"><img src="assets/clientes/pacheco.png" alt="Drogarias Pacheco"><img src="assets/clientes/loungerie.png" alt="Loungerie"><img src="assets/clientes/petz.png" alt="Petz"></div></div></div>
+    <div class="esteira"><span class="rot"><svg class="ic p"><use href="#i-fabrica"/></svg>Pet, casa e eletro</span><div class="vai"><div class="faixa"><img src="assets/clientes/brastemp.png" alt="Brastemp"><img src="assets/clientes/consul.png" alt="Consul"><img src="assets/clientes/panasonic.png" alt="Panasonic"><img src="assets/clientes/alltak.png" alt="Alltak"><img src="assets/clientes/premierpet.png" alt="PremieRpet"><img src="assets/clientes/kelco.png" alt="Kelco"><img src="assets/clientes/keldog.png" alt="Keldog"><img src="assets/clientes/kelcat.png" alt="Kelcat"><img src="assets/clientes/pipicat.png" alt="Pipicat"><img src="assets/clientes/whiskas.png" alt="Whiskas"><img src="assets/clientes/pedigree.png" alt="Pedigree"></div></div></div>
+  </div>
+  <div class="contagem anima d3"><b class="num" data-conta="94">0</b><span>clientes com demanda aberta nos últimos 12 meses</span></div>
+  <p class="fonte">Marcas atendidas pela 75 LAB · a referência pode ser pedida a qualquer uma delas.</p>
+</section>
+
+<!-- ===================================================== 12 cases -->
+<section id="cases" class="tela s-gon" data-tema="escuro" data-titulo="A prova está na gôndola" data-cap="(04) Provas" data-estados=".prateleiras-f button">
+  <span class="eyebrow anima"><b>(04)</b> Cases</span>
+  <h2 class="anima d1">A prova está <span class="t-lime">na gôndola.</span></h2>
+  <div class="prateleiras-f anima d2">
+    <button class="on" data-c="pdv" data-cursor="Filtrar">Material de PDV</button>
+    <button data-c="ativacao" data-cursor="Filtrar">Ativações</button>
+    <button data-c="stand" data-cursor="Filtrar">Stands</button>
+    <button data-c="evento" data-cursor="Filtrar">Eventos</button>
+    <button data-c="promo" data-cursor="Filtrar">Promoção e campanha</button>
+    <button data-c="digital" data-cursor="Filtrar">Digital e embalagem</button>
+  </div>
+  <span class="cta so-tela"><svg class="ic"><use href="#i-clique"/></svg>Escolha a prateleira · clique na foto para ampliar</span>
+  <div class="gondola anima d3">
+    <div class="prat" id="gonPrat"></div>
+    <div class="base-g"></div>
+  </div>
+  <div class="etiquetas anima d3" id="gonEtq"></div>
+  <a class="botao cheio seta mais anima d4" href="https://www.75lab.com.br/cases.html" target="_blank" rel="noopener" data-cursor="Abrir">Ver os 84 cases no site</a>
+  <template id="gonDados">
+    <i data-c="pdv" data-f="g20" data-t="Unilever" data-p="Display cash"></i><i data-c="pdv" data-f="g14" data-t="Whirlpool" data-p="Lavadora BWD16"></i><i data-c="pdv" data-f="g16" data-t="Polenghi" data-p="Varejo e food"></i><i data-c="pdv" data-f="g30" data-t="Lactalis" data-p="Enxoval de loja"></i>
+    <i data-c="ativacao" data-f="g48" data-t="O Boticário" data-p="Display modular"></i><i data-c="ativacao" data-f="g50" data-t="Seara" data-p="Ponta de gôndola"></i><i data-c="ativacao" data-f="g40" data-t="Petz" data-p="Ponta de gôndola"></i><i data-c="ativacao" data-f="g53" data-t="Alltak" data-p="Experiência Leroy"></i>
+    <i data-c="stand" data-f="g01" data-t="Alltak" data-p="Future Print"></i><i data-c="stand" data-f="g04" data-t="Alltak" data-p="Haus Decor"></i><i data-c="stand" data-f="g05" data-t="Ciranda" data-p="Bienal RJ"></i><i data-c="stand" data-f="g02" data-t="Pinc" data-p="Mini stand"></i>
+    <i data-c="evento" data-f="g60" data-t="DPSP" data-p="Endomarketing"></i><i data-c="evento" data-f="g62" data-t="Alltak" data-p="Convenção"></i><i data-c="evento" data-f="g65" data-t="Polenghi" data-p="Convenção"></i><i data-c="evento" data-f="g66" data-t="Abras" data-p="Super Varejo"></i>
+    <i data-c="promo" data-f="g70" data-t="LG" data-p="Promoção cashback"></i><i data-c="promo" data-f="g69" data-t="Whirlpool" data-p="Top Trade"></i><i data-c="promo" data-f="g58" data-t="Alltak" data-p="Rebranding"></i><i data-c="promo" data-f="g72" data-t="Abras" data-p="Dia do Supermercado"></i>
+    <i data-c="digital" data-f="g80" data-t="Whirlpool" data-p="Loja perfeita online"></i><i data-c="digital" data-f="g78" data-t="3 Corações" data-p="Plataforma de treinamento"></i><i data-c="digital" data-f="g84" data-t="Loungerie" data-p="Embalagem de Natal"></i><i data-c="digital" data-f="g85" data-t="Kelco" data-p="Embalagem Bifinhos"></i>
+  </template>
+</section>
+
+<!-- ===================================================== 13 depoimento -->
+<section id="depoimento" class="tela s-dep" data-tema="lime" data-titulo="Quem já viveu um projeto com a gente" data-cap="(04) Provas">
+  <span class="eyebrow anima">Quem já viveu um cronograma com a gente · stand Alltak Decor</span>
+  <blockquote class="anima d1"><span class="aspas">“</span>Desde a primeira reunião, me surpreenderam com essa parte de planejamento.</blockquote>
+  <p class="segunda anima d2">“Um programa viável de execução. Datas de aprovações, datas de execução, finalização para a entrega do stand.”</p>
+  <div class="quem anima d2"><b>Marcelo Abreu</b><span>Alltak</span></div>
+  <div class="videos anima d3">
+    <span class="eyebrow">Projetos da 75 LAB em vídeo</span>
+    <span class="cta so-tela"><svg class="ic"><use href="#i-clique"/></svg>Clique num vídeo para assistir no celular ao lado</span>
+    <div class="fila" id="filaVid">
+      <button class="vid on" data-src="assets/video/alltak-marcelo.mp4" data-poster="assets/video/alltak-marcelo.webp" data-dur="1min19" data-cursor="Assistir"><span class="capa"><img src="assets/video/alltak-marcelo.webp" alt="" loading="lazy"><i></i><em>1min19</em></span><b>Depoimento · stand Alltak Decor</b></button>
+      <button class="vid" data-src="assets/video/boticario.mp4" data-poster="assets/video/boticario.webp" data-dur="53s" data-cursor="Assistir"><span class="capa"><img src="assets/video/boticario.webp" alt="" loading="lazy"><i></i><em>53s</em></span><b>O Boticário · display flex</b></button>
+      <button class="vid" data-src="assets/video/evino.mp4" data-poster="assets/video/evino.webp" data-dur="1min25" data-cursor="Assistir"><span class="capa"><img src="assets/video/evino.webp" alt="" loading="lazy"><i></i><em>1min25</em></span><b>Evino · corta-gotas</b></button>
+      <button class="vid" data-src="assets/video/reel4.mp4" data-poster="assets/video/reel4.webp" data-dur="41s" data-cursor="Assistir"><span class="capa"><img src="assets/video/reel4.webp" alt="" loading="lazy"><i></i><em>41s</em></span><b>Alltak em Fortaleza</b></button>
+      <button class="vid" data-src="assets/video/reel6.mp4" data-poster="assets/video/reel6.webp" data-dur="1min35" data-cursor="Assistir"><span class="capa"><img src="assets/video/reel6.webp" alt="" loading="lazy"><i></i><em>1min35</em></span><b>Bastidores · display Kelco</b></button>
+    </div>
+  </div>
+  <div class="outro anima d4"><q>Resolveram no ponto de venda o que a gente tentava há meses.</q><span>Bruno Soares · Diretor</span></div>
+  <div class="celular anima zoom d2">
+    <video id="vidDep" src="assets/video/alltak-marcelo.mp4" poster="assets/video/alltak-marcelo.webp" preload="none" playsinline></video>
+    <button class="play" id="playDep" data-cursor="Assistir" aria-label="Assistir ao vídeo"><i></i><span id="durDep">Assistir · 1min19</span></button>
+    <div class="barrav"><i id="progDep"></i></div>
+  </div>
+  <p class="fonte">Vídeos de projetos da 75 LAB: Instagram @setecincolab e acervo de cases. Depoimentos publicados em 75lab.com.br.</p>
+</section>
+
+<!-- ===================================================== 14 tecnologia -->
+<section id="tecnologia" class="tela s-tec" data-tema="claro" data-titulo="Tecnologia própria" data-cap="(05) Como trabalhamos" data-estados=".abas-t button">
+  <span class="eyebrow anima"><b>(05)</b> O que entra junto</span>
+  <h2 class="anima d1">Tecnologia própria <span class="onda t-teal">em cada projeto.</span></h2>
+  <div class="abas-t anima d2">
+    <button class="on" data-a="0" data-cursor="Ver"><i>01</i><b>Ariuno</b><span>gestão do pedido à entrega</span></button>
+    <button data-a="1" data-cursor="Ver"><i>02</i><b>Realidade aumentada</b><span>a peça na loja antes de produzir</span></button>
+    <button data-a="2" data-cursor="Ver"><i>03</i><b>Rastreio de PDV</b><span>cada peça dá notícia de si</span></button>
+  </div>
+  <span class="cta so-tela"><svg class="ic"><use href="#i-clique"/></svg>Clique em cada tecnologia</span>
+  <div class="vitrine-t anima dir d3">
+    <div class="painel-t on" data-a="0">
+      <div class="nav-b"><i></i><i></i><i></i><span>ariuno.com.br</span></div>
+      <img src="assets/ariuno/fee-aprovacao.webp" alt="Tela de aprovação de peça no Ariuno">
+      <div class="txt-t"><b>Briefing, aprovação e versão no mesmo lugar.</b><p>Cada pedido vira um card com prazo, responsável e histórico. Você aprova a arte marcando direto na imagem e acompanha tudo em tempo real.</p></div>
+    </div>
+    <div class="painel-t" data-a="1">
+      <div class="ar-duo"><img src="assets/ar/polenguinho.webp" alt="Display Polenguinho em 3D"><a class="qr-ar" href="https://projetos.75lab.com.br/ar/savencia-display-m-polenguinho/" target="_blank" rel="noopener" data-cursor="Abrir"><img src="assets/qr/polenguinho.png" alt="QR para abrir o display em realidade aumentada"><b>Aponte o celular e veja o display na sua mesa</b></a></div>
+      <div class="txt-t"><b>Aprovação em tamanho real, antes da faca existir.</b><p>Todo 3D vira realidade aumentada: o time comercial mostra o display na loja do cliente e a peça é decidida vendo, não imaginando.</p></div>
+    </div>
+    <div class="painel-t" data-a="2">
+      <ol class="vida-t">
+        <li><svg class="ic"><use href="#i-caminhao"/></svg><b>Expedição</b><span>quantas saíram e para onde</span></li>
+        <li><svg class="ic"><use href="#i-pin"/></svg><b>Recebimento</b><span>a loja confirma quando chegou</span></li>
+        <li><svg class="ic"><use href="#i-camera"/></svg><b>Instalação</b><span>o promotor registra com foto</span></li>
+        <li><svg class="ic"><use href="#i-lupa"/></svg><b>Auditoria</b><span>quantas continuam de pé</span></li>
+      </ol>
+      <div class="txt-t"><b>Código único por peça, não QR de campanha.</b><p>A tiragem da próxima ação deixa de ser estimativa e vira cálculo, com evidência e data de cada instalação.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== 15 como contratar -->
+<section id="projetos" class="tela s-proj" data-tema="escuro" data-titulo="Projeto, não fee" data-cap="(05) Como trabalhamos">
+  <span class="eyebrow anima"><b>(05)</b> Como trabalhamos com você</span>
+  <h2 class="anima d1">Projeto com começo, meio e entrega. <span class="t-lime">Não fee.</span></h2>
+  <p class="lead anima d2">Escopo, prazo e preço fechados por projeto. Cada um termina em algo que fica com a sua marca e que o seu time opera sozinho depois.</p>
+  <div class="escada anima d3" data-seq>
+    <div class="degrau d-1"><span class="n">Onda 01</span><b>Destravar</b><p>O desafio mais urgente resolvido na loja.</p><em>Fica: a peça, o arquivo aberto e o guia de execução.</em></div>
+    <div class="degrau d-2"><span class="n">Onda 02</span><b>Padronizar</b><p>O que funcionou vira regra para todas as lojas.</p><em>Fica: o manual, o template e a matriz de PDV.</em></div>
+    <div class="degrau d-3"><span class="n">Onda 03</span><b>Escalar</b><p>A rede inteira executando, com medição.</p><em>Fica: o rastreio, o painel e a trilha do time.</em></div>
+  </div>
+  <div class="regras-p anima d4">
+    <div><svg class="ic p"><use href="#i-check"/></svg>Cada onda é contratada sozinha: você para quando quiser.</div>
+    <div><svg class="ic p"><use href="#i-check"/></svg>Parcela igual durante o projeto, com data para acabar.</div>
+    <div><svg class="ic p"><use href="#i-check"/></svg>Squad montada para o desafio, com quem decide na mesa.</div>
+  </div>
+</section>
+
+<!-- ===================================================== 16 fim -->
+<section id="contato" class="tela s-fim" data-tema="lime" data-titulo="Vamos fazer acontecer" data-cap="(05) Como trabalhamos">
+  <span class="eyebrow anima">Tem uma intenção comercial?</span>
+  <h2 class="anima d1">Vamos fazer<br><span class="sub">acontecer.</span></h2>
+  <p class="lead anima d2">Uma conversa de diagnóstico, sem compromisso, sobre o desafio da sua marca no canal. A gente traduz e materializa a solução certa.</p>
+  <div class="acoes anima d3">
+    <a class="botao cheio seta" href="https://wa.me/5511986765634?text=Ol%C3%A1%2C%20vi%20as%20credenciais%20da%2075%20LAB%20e%20quero%20conversar." target="_blank" rel="noopener" data-cursor="Conversar"><svg class="ic p"><use href="#i-whats"/></svg>Fale conosco no WhatsApp</a>
+    <a class="botao" href="mailto:contato@75lab.com.br" data-cursor="Escrever">contato@75lab.com.br</a>
+    <a class="botao" href="https://75lab.com.br" target="_blank" rel="noopener" data-cursor="Abrir">75lab.com.br</a>
+  </div>
+  <div class="qr-fim anima zoom d3"><img src="assets/qr/whatsapp.png" alt="QR para falar com a 75 LAB no WhatsApp"><b>Aponte a câmera e fale com a gente</b></div>
+  <div class="contatos anima d4">
+    <div><b>Caique Becker</b><span>Cofundador · Head de Trade</span><span>caique.becker@75lab.com.br</span><span>(11) 98676-5634</span></div>
+    <div><b>Daniel Coimbra</b><span>Cofundador · CEO</span><span>daniel.coimbra@75lab.com.br</span></div>
+  </div>
+  <div class="inst anima d5">75 LAB ESTRATÉGIA, DESIGN E PRODUÇÃO LTDA · CNPJ 55.470.982/0001-77 · CENU, Centro Empresarial das Nações Unidas, Torre Norte · Av. das Nações Unidas, 12.901, Brooklin, São Paulo, SP · @setecincolab</div>
+  <span class="assin-fim anima d5">Ideia boa é a que acontece.</span>
+</section>
+
+  <header id="topo">
+    <div class="marcas">
+      <img class="lab m-escuro" src="assets/75lab-lime.png" alt="75 LAB"><img class="lab m-claro" src="assets/75lab-black.png" alt="75 LAB">
+    </div>
+    <div class="dir"><span class="cap" id="capTxt"></span><a id="btnPdf" href="Credenciais-75LAB.pdf" download="Credenciais 75 LAB.pdf" data-cursor="Baixar" aria-label="Baixar a apresentação em PDF"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M6 10l6 6 6-6M4 20h16"/></svg>Baixar PDF</a><button id="btnSumario" data-sumario data-cursor="Abrir"><span><i></i><i></i><i></i></span>Sumário</button></div>
+  </header>
+  <footer id="rodape">
+    <span class="assin">75 LAB · Credenciais · Ideia boa é a que acontece</span>
+    <div class="nav"><button id="ant" aria-label="Tela anterior" data-cursor="Voltar">←</button><span id="cont">01 / 16</span><button id="prox" aria-label="Próxima tela" data-cursor="Seguir">→</button></div>
+  </footer>
+  <div id="prog"><i></i></div>
+  <div id="wipe"><img src="assets/75lab-black.png" alt=""></div>
+  <nav id="sumario" aria-label="Sumário"><button class="botao mini fechar" data-cursor="Fechar">Fechar ✕</button><h2>Sumário · <span>Credenciais 75 LAB</span></h2><ol id="sumLista"></ol></nav>
+  <div class="grao"></div>
+</div></div>
+
+<div id="caixa" role="dialog" aria-label="Imagem ampliada"><button class="fechar" data-cursor="Fechar">Fechar ✕</button><img id="cxImg" alt=""><p id="cxTxt"></p></div>
+<div id="cursor"></div><div id="anel"><span id="anelTxt"></span></div>
+<div id="gire"><img src="assets/75lab-lime.png" alt="75 LAB"><div class="tel"></div><h3>Gire o celular</h3><p>A apresentação foi desenhada na horizontal. Deitado, o celular mostra a tela inteira.</p><button class="botao mini" id="verAssim">Ver assim mesmo</button><a class="botao mini" href="Credenciais-75LAB.pdf" download="Credenciais 75 LAB.pdf">Baixar PDF</a></div>
+
+<script src="assets/deck.js?v=20261029182047"></script>
 </body>
 </html>

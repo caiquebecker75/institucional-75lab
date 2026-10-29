@@ -1,97 +1,73 @@
-"""Monta a apresentação institucional da 75 LAB a partir do PDF exportado das Credenciais V6.
+"""Monta as credenciais: fonte/telas.html + ícones + moldura -> index.html; CSS e JS -> assets/.
 
-Rodar: python3 fonte/build.py "<PDF exportado do Google Slides>"
-Gera telas/NNN.jpg (1920 px), telas/m/NNN.jpg (miniaturas), o PDF leve para baixar
-(capa "feita em HTML, clique aqui" + todas as telas) e o index.html a partir do modelo.
+Rodar: python3 fonte/build.py
 """
-import io
 import pathlib
-import sys
+import re
 import time
 
-import fitz
-import qrcode
-from PIL import Image, ImageDraw, ImageFont
-
 RAIZ = pathlib.Path(__file__).resolve().parent.parent
-LINK = 'https://projetos.75lab.com.br/institucional-75lab/'
-PDF_SAIDA = 'Credenciais-75LAB.pdf'
-FONTES = pathlib.Path.home() / 'Library' / 'Fonts'
-INK, PAPER, LIME, MUTED = (14, 16, 13), (243, 242, 236), (192, 238, 78), (154, 160, 146)
+F = RAIZ / 'fonte'
+V = time.strftime('%Y%m%d%H%M%S')
 
-origem = fitz.open(sys.argv[1])
-telas = RAIZ / 'telas'
-(telas / 'm').mkdir(parents=True, exist_ok=True)
+(RAIZ / 'assets' / 'deck.css').write_text((F / 'base.css').read_text() + (F / 'quem-somos.css').read_text() + (F / 'credenciais.css').read_text())
+(RAIZ / 'assets' / 'deck.js').write_text((F / 'deck.js').read_text())
+(RAIZ / 'versao.txt').write_text(V)
 
+telas = (F / 'telas.html').read_text()
+total = len(re.findall(r'class="tela ', telas))
+icones = (F / 'icones.svg').read_text()
 
-def fonte(nome, tamanho):
-    return ImageFont.truetype(str(FONTES / nome), tamanho)
+html = f'''<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta id="versaoDeck" content="{V}">
+<title>75 LAB · Credenciais</title>
+<meta name="description" content="Credenciais da 75 LAB, aceleradora de trade marketing: quem somos, o hub de soluções, o Método 75, números, clientes e cases.">
+<meta property="og:title" content="75 LAB · Credenciais">
+<meta property="og:description" content="Ideia boa é a que acontece. Quem somos, o que plugamos e a prova na gôndola.">
+<meta property="og:image" content="https://projetos.75lab.com.br/institucional-75lab/assets/og.jpg">
+<link rel="icon" href="assets/75lab-lime.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/deck.css?v={V}">
+<script>
+// o GitHub Pages guarda o HTML por 10 min: se já existe versão nova, recarrega com ela
+fetch('versao.txt?t='+Date.now(),{{cache:'no-store'}}).then(r=>r.ok?r.text():'').then(v=>{{v=v.trim();if(v&&v!==document.getElementById('versaoDeck').content&&!location.search.includes('v='+v)){{const u=new URL(location.href);u.searchParams.set('v',v);location.replace(u);}}}}).catch(()=>{{}});
+</script>
+</head>
+<body>
 
+{icones}
+<div id="wrap"><div id="stage" class="t-escuro capa">
 
-def capa():
-    """Primeira página do PDF: leva quem recebeu o arquivo para a versão em HTML."""
-    w, h = 1920, 1080
-    im = Image.new('RGB', (w, h), INK)
-    d = ImageDraw.Draw(im)
-    logo = fitz.open(str(RAIZ / 'assets' / '75lab-logo-lime.svg'))[0].get_pixmap(matrix=fitz.Matrix(0.075, 0.075), alpha=True)
-    im.paste(Image.open(io.BytesIO(logo.tobytes('png'))), (140, 120), Image.open(io.BytesIO(logo.tobytes('png'))))
-    d.text((140, 290), 'ANTES DE COMEÇAR · CREDENCIAIS 75 LAB', font=fonte('SpaceGrotesk-700.ttf', 24), fill=LIME)
-    titulo = fonte('BigShouldersDisplay-900.ttf', 132)
-    d.text((136, 340), 'ESTA APRESENTAÇÃO', font=titulo, fill=PAPER)
-    d.text((136, 470), 'TAMBÉM ESTÁ EM HTML.', font=titulo, fill=LIME)
-    corpo = fonte('SpaceGrotesk-400.ttf', 30)
-    d.text((140, 650), 'No link ela abre em tela cheia, com todas as telas navegáveis', font=corpo, fill=PAPER)
-    d.text((140, 692), 'e sempre na versão mais nova.', font=corpo, fill=PAPER)
-    d.rounded_rectangle((140, 780, 900, 862), radius=41, fill=LIME)
-    d.text((182, 803), 'Clique aqui para acessar  ↗', font=fonte('SpaceGrotesk-700.ttf', 32), fill=INK)
-    d.text((140, 892), LINK.replace('https://', '').rstrip('/'), font=fonte('SpaceGrotesk-500.ttf', 24), fill=LIME)
-    qr = qrcode.QRCode(border=2, box_size=12)
-    qr.add_data(LINK)
-    qr_img = qr.make_image(fill_color=INK, back_color=PAPER).convert('RGB').resize((400, 400), Image.NEAREST)
-    d.rectangle((1380 + 18, 300 + 18, 1380 + 460 + 18, 300 + 540 + 18), fill=LIME)
-    d.rectangle((1380, 300, 1380 + 460, 300 + 540), fill=PAPER)
-    im.paste(qr_img, (1410, 330))
-    d.text((1380 + 230, 778), 'NO CELULAR, APONTE A CÂMERA', font=fonte('BigShouldersDisplay-900.ttf', 34), fill=INK, anchor='mm')
-    pe = fonte('SpaceGrotesk-500.ttf', 18)
-    d.text((140, 1000), '75 LAB · ESTRATÉGIA, DESIGN E PRODUÇÃO', font=pe, fill=MUTED)
-    d.text((1380, 1000), 'AS PÁGINAS A SEGUIR SÃO A VERSÃO EM PDF', font=pe, fill=MUTED)
-    return im
+{telas}
+  <header id="topo">
+    <div class="marcas">
+      <img class="lab m-escuro" src="assets/75lab-lime.png" alt="75 LAB"><img class="lab m-claro" src="assets/75lab-black.png" alt="75 LAB">
+    </div>
+    <div class="dir"><span class="cap" id="capTxt"></span><a id="btnPdf" href="Credenciais-75LAB.pdf" download="Credenciais 75 LAB.pdf" data-cursor="Baixar" aria-label="Baixar a apresentação em PDF"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M6 10l6 6 6-6M4 20h16"/></svg>Baixar PDF</a><button id="btnSumario" data-sumario data-cursor="Abrir"><span><i></i><i></i><i></i></span>Sumário</button></div>
+  </header>
+  <footer id="rodape">
+    <span class="assin">75 LAB · Credenciais · Ideia boa é a que acontece</span>
+    <div class="nav"><button id="ant" aria-label="Tela anterior" data-cursor="Voltar">←</button><span id="cont">01 / {total:02d}</span><button id="prox" aria-label="Próxima tela" data-cursor="Seguir">→</button></div>
+  </footer>
+  <div id="prog"><i></i></div>
+  <div id="wipe"><img src="assets/75lab-black.png" alt=""></div>
+  <nav id="sumario" aria-label="Sumário"><button class="botao mini fechar" data-cursor="Fechar">Fechar ✕</button><h2>Sumário · <span>Credenciais 75 LAB</span></h2><ol id="sumLista"></ol></nav>
+  <div class="grao"></div>
+</div></div>
 
+<div id="caixa" role="dialog" aria-label="Imagem ampliada"><button class="fechar" data-cursor="Fechar">Fechar ✕</button><img id="cxImg" alt=""><p id="cxTxt"></p></div>
+<div id="cursor"></div><div id="anel"><span id="anelTxt"></span></div>
+<div id="gire"><img src="assets/75lab-lime.png" alt="75 LAB"><div class="tel"></div><h3>Gire o celular</h3><p>A apresentação foi desenhada na horizontal. Deitado, o celular mostra a tela inteira.</p><button class="botao mini" id="verAssim">Ver assim mesmo</button><a class="botao mini" href="Credenciais-75LAB.pdf" download="Credenciais 75 LAB.pdf">Baixar PDF</a></div>
 
-def jpg(im, largura, qualidade):
-    if im.width != largura:
-        im = im.resize((largura, round(im.height * largura / im.width)), Image.LANCZOS)
-    b = io.BytesIO()
-    im.save(b, 'JPEG', quality=qualidade, optimize=True, progressive=True)
-    return b.getvalue()
-
-
-pdf = fitz.open()
-def pagina(dados_jpg, link=False):
-    p = pdf.new_page(width=720, height=405)
-    p.insert_image(p.rect, stream=dados_jpg)
-    if link:
-        p.insert_link({'kind': fitz.LINK_URI, 'from': p.rect, 'uri': LINK})
-
-capa_img = capa()
-capa_img.save(RAIZ / 'pdf-capa.jpg', quality=88)
-pagina(jpg(capa_img, 1600, 84), link=True)
-
-n = origem.page_count
-for i, pg in enumerate(origem, 1):
-    pix = pg.get_pixmap(matrix=fitz.Matrix(1920 / pg.rect.width, 1920 / pg.rect.width), alpha=False)
-    im = Image.frombytes('RGB', (pix.width, pix.height), pix.samples)
-    (telas / f'{i:03d}.jpg').write_bytes(jpg(im, 1920, 82))
-    (telas / 'm' / f'{i:03d}.jpg').write_bytes(jpg(im, 480, 72))
-    pagina(jpg(im, 1600, 74))
-    print(f'\r{i}/{n}', end='', flush=True)
-
-pdf.set_metadata({'title': 'Credenciais 75 LAB · Apresentação institucional', 'author': '75 LAB', 'subject': LINK})
-pdf.save(RAIZ / PDF_SAIDA, garbage=4, deflate=True)
-mb = (RAIZ / PDF_SAIDA).stat().st_size / 1e6
-
-modelo = (RAIZ / 'fonte' / 'index.modelo.html').read_text()
-html = (modelo.replace('{{N}}', str(n)).replace('{{RATIO}}', f'{origem[0].rect.width / origem[0].rect.height:.4f}')
-        .replace('{{PDF}}', PDF_SAIDA).replace('{{PDF_MB}}', f'{mb:.0f}').replace('{{VERSAO}}', time.strftime('%Y%m%d%H%M')))
+<script src="assets/deck.js?v={V}"></script>
+</body>
+</html>
+'''
 (RAIZ / 'index.html').write_text(html)
-print(f'\nok: {n} telas, PDF {mb:.1f} MB')
+print('ok', total, 'telas, versão', V)

@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>75 LAB · Apresentação institucional</title>
+<meta name="description" content="Credenciais da 75 LAB: quem somos, o Método LAB, o 75 Partners e os projetos que já fizemos.">
+<meta property="og:title" content="75 LAB · Apresentação institucional">
+<meta property="og:description" content="Ideia boa é a que acontece. Quem somos, como trabalhamos e o que já entregamos.">
+<meta property="og:image" content="https://projetos.75lab.com.br/institucional-75lab/telas/001.jpg">
+<meta name="theme-color" content="#0e100d">
+<link rel="icon" href="assets/75lab-logo-lime.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0e100d;--ink-2:#171a15;--ink-3:#23271f;--paper:#f3f2ec;--lime:#c0ee4e;--muted:#9aa092;--titulo:'Big Shoulders Display',Impact,sans-serif;--texto:'Space Grotesk',system-ui,sans-serif;--mono:'Space Mono',ui-monospace,monospace;--barra:64px}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--ink);color:var(--paper);font-family:var(--texto);-webkit-font-smoothing:antialiased;overflow:hidden}
+button,a{font:inherit;color:inherit;cursor:pointer}
+a{text-decoration:none}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+
+.topo{position:fixed;inset:0 0 auto 0;height:var(--barra);display:flex;align-items:center;gap:14px;padding:0 20px;z-index:5;background:linear-gradient(var(--ink) 60%,transparent)}
+.marca{display:flex;align-items:center;gap:12px;min-width:0;margin-right:auto}
+.marca img{height:26px;width:auto;flex:none}
+.marca b{font-family:var(--titulo);font-weight:900;font-size:22px;letter-spacing:.02em;text-transform:uppercase;white-space:nowrap}
+.marca span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.botao{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border:1px solid var(--ink-3);background:var(--ink-2);border-radius:999px;font-size:14px;font-weight:500;white-space:nowrap;transition:background .15s,border-color .15s,transform .15s}
+.botao:hover{border-color:var(--muted)}
+.botao:active{transform:translateY(1px)}
+.botao svg{width:18px;height:18px;flex:none}
+.botao.cheio{background:var(--lime);border-color:var(--lime);color:var(--ink);font-weight:700}
+.botao.cheio:hover{background:#d2f77a;border-color:#d2f77a}
+.botao small{font-family:var(--mono);font-size:11px;opacity:.65;font-weight:400}
+
+.palco{position:fixed;inset:var(--barra) 0 56px 0;display:flex;align-items:center;justify-content:center;padding:0 76px}
+.tela{position:relative;width:min(100%,calc((100vh - var(--barra) - 72px) * var(--ratio)));aspect-ratio:var(--ratio);background:var(--ink-2);box-shadow:0 30px 80px rgba(0,0,0,.45);overflow:hidden;touch-action:pan-y}
+.tela img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .25s ease}
+.tela img.saindo{opacity:0}
+.seta{position:absolute;top:50%;translate:0 -50%;width:52px;height:52px;border-radius:50%;border:1px solid var(--ink-3);background:var(--ink-2);display:grid;place-items:center;transition:background .15s,opacity .15s}
+.seta:hover{background:var(--ink-3)}
+.seta[aria-disabled=true]{opacity:.25;pointer-events:none}
+.seta svg{width:22px;height:22px}
+.seta.ant{left:14px}.seta.prox{right:14px}
+
+.rodape{position:fixed;inset:auto 0 0 0;height:56px;display:flex;align-items:center;gap:16px;padding:0 20px;z-index:5}
+.contador{font-family:var(--mono);font-size:13px;letter-spacing:.08em;min-width:84px}
+.contador b{color:var(--lime);font-weight:700}
+.trilho{flex:1;height:3px;background:var(--ink-3);border-radius:2px;overflow:hidden;cursor:pointer;position:relative}
+.trilho i{position:absolute;inset:0 auto 0 0;background:var(--lime);transition:width .25s ease}
+.dica{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+
+.grade{position:fixed;inset:0;z-index:10;background:rgba(14,16,13,.97);overflow-y:auto;padding:84px 20px 40px;display:none}
+.grade.aberta{display:block}
+.grade header{position:fixed;inset:0 0 auto 0;height:var(--barra);display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:var(--ink);z-index:1}
+.grade header b{font-family:var(--titulo);font-weight:900;font-size:22px;text-transform:uppercase}
+.miniaturas{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;max-width:1500px;margin:0 auto}
+.miniaturas button{display:block;border:1px solid var(--ink-3);background:var(--ink-2);padding:0;position:relative;aspect-ratio:var(--ratio);overflow:hidden;transition:border-color .15s,transform .15s}
+.miniaturas button:hover{border-color:var(--lime);transform:translateY(-2px)}
+.miniaturas button.atual{border-color:var(--lime);box-shadow:0 0 0 2px var(--lime)}
+.miniaturas img{width:100%;height:100%;object-fit:cover;display:block}
+.miniaturas span{position:absolute;left:8px;bottom:8px;font-family:var(--mono);font-size:11px;background:var(--ink);padding:2px 6px}
+
+.so-largo{display:inline-flex}
+@media (max-width:900px){
+  :root{--barra:58px}
+  .marca span,.so-largo,.dica{display:none}
+  .botao{height:38px;padding:0 13px}
+  .botao .rot{display:none}
+  .botao.cheio .rot{display:inline}
+  .palco{padding:0 12px;inset:var(--barra) 0 76px 0}
+  .tela{width:100%}
+  .seta{top:auto;bottom:-64px;translate:none;width:44px;height:44px}
+  .seta.ant{left:calc(50% - 56px)}.seta.prox{right:calc(50% - 56px)}
+  .rodape{height:20px;bottom:6px}
+  .contador{display:none}
+  .miniaturas{grid-template-columns:repeat(2,1fr);gap:10px}
+}
+@media (max-width:420px){.marca b{font-size:19px}}
+@media print{.topo,.rodape,.seta{display:none}}
+</style>
+</head>
+<body>
+<header class="topo">
+  <a class="marca" href="https://75lab.com.br" target="_blank" rel="noopener" aria-label="Site da 75 LAB">
+    <img src="assets/75lab-logo-lime.svg" alt="75 LAB">
+    <b>Credenciais</b>
+    <span>Apresentação institucional</span>
+  </a>
+  <button class="botao so-largo" id="abrirGrade" type="button" title="Ver todas as telas (G)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+    <span class="rot">Todas as telas</span>
+  </button>
+  <a class="botao" href="https://wa.me/5511986765634?text=Ol%C3%A1%2C%20vi%20a%20apresenta%C3%A7%C3%A3o%20institucional%20da%2075%20LAB%20e%20quero%20conversar." target="_blank" rel="noopener" title="Fale conosco no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
+    <span class="rot">Fale conosco</span>
+  </a>
+  <a class="botao cheio" id="baixarPdf" href="Credenciais-V6.pdf" download="Credenciais 75 LAB.pdf" title="Baixar a apresentação em PDF">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+    <span class="rot">Baixar PDF</span> <small class="so-largo">{{PDF_MB}} MB</small>
+  </a>
+</header>
+
+<main class="palco">
+  <div class="tela" id="tela" aria-live="polite">
+    <img id="img" alt="">
+  </div>
+  <button class="seta ant" id="ant" type="button" aria-label="Tela anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
+  <button class="seta prox" id="prox" type="button" aria-label="Próxima tela"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
+</main>
+
+<footer class="rodape">
+  <span class="contador" id="contador"></span>
+  <div class="trilho" id="trilho" title="Ir para um ponto da apresentação"><i id="progresso"></i></div>
+  <span class="dica">Use as setas do teclado · G mostra todas</span>
+</footer>
+
+<section class="grade" id="grade" aria-label="Todas as telas">
+  <header><b>Todas as telas</b><button class="botao" id="fecharGrade" type="button">Fechar</button></header>
+  <div class="miniaturas" id="miniaturas"></div>
+</section>
+
+<script>
+(() => {
+  const N = {{N}};
+  document.documentElement.style.setProperty('--ratio', '{{RATIO}}');
+  const num = (i) => String(i).padStart(3, '0');
+  const src = (i) => `telas/${num(i)}.jpg?v={{VERSAO}}`;
+  const mini = (i) => `telas/m/${num(i)}.jpg?v={{VERSAO}}`;
+  const img = document.getElementById('img');
+  const ant = document.getElementById('ant'), prox = document.getElementById('prox');
+  const contador = document.getElementById('contador'), progresso = document.getElementById('progresso');
+  const grade = document.getElementById('grade'), miniaturas = document.getElementById('miniaturas');
+  const cache = {};
+  const carregar = (i) => { if (i >= 1 && i <= N && !cache[i]) { cache[i] = new Image(); cache[i].src = src(i); } };
+  let atual = 0;
+
+  function ir(i, empurrar = true) {
+    i = Math.max(1, Math.min(N, i | 0 || 1));
+    if (i === atual) return;
+    atual = i;
+    carregar(i);
+    const novo = cache[i];
+    const trocar = () => { img.src = novo.src; img.alt = `Tela ${i} de ${N}`; img.classList.remove('saindo'); };
+    img.classList.add('saindo');
+    if (novo.complete) setTimeout(trocar, 120); else novo.onload = novo.onerror = trocar;
+    contador.innerHTML = `<b>${num(i).slice(1)}</b> / ${N}`;
+    progresso.style.width = `${(i / N) * 100}%`;
+    ant.setAttribute('aria-disabled', i === 1); prox.setAttribute('aria-disabled', i === N);
+    [i + 1, i + 2, i + 3, i - 1].forEach(carregar);
+    if (empurrar) history.replaceState(null, '', `#${i}`);
+    miniaturas.querySelector('.atual')?.classList.remove('atual');
+    miniaturas.children[i - 1]?.classList.add('atual');
+  }
+
+  for (let i = 1; i <= N; i++) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.innerHTML = `<img loading="lazy" src="${mini(i)}" alt="Tela ${i}"><span>${i}</span>`;
+    b.onclick = () => { ir(i); fechar(); };
+    miniaturas.appendChild(b);
+  }
+  const abrir = () => { grade.classList.add('aberta'); miniaturas.children[atual - 1]?.scrollIntoView({ block: 'center' }); };
+  const fechar = () => grade.classList.remove('aberta');
+  document.getElementById('abrirGrade').onclick = abrir;
+  document.getElementById('fecharGrade').onclick = fechar;
+
+  ant.onclick = () => ir(atual - 1);
+  prox.onclick = () => ir(atual + 1);
+  document.getElementById('tela').addEventListener('click', (e) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    ir(e.clientX - r.left < r.width * 0.3 ? atual - 1 : atual + 1);
+  });
+  document.getElementById('trilho').addEventListener('click', (e) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    ir(Math.ceil(((e.clientX - r.left) / r.width) * N));
+  });
+  addEventListener('keydown', (e) => {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); ir(atual + 1); }
+    else if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); ir(atual - 1); }
+    else if (e.key === 'Home') ir(1);
+    else if (e.key === 'End') ir(N);
+    else if (e.key === 'g' || e.key === 'G') grade.classList.contains('aberta') ? fechar() : abrir();
+    else if (e.key === 'Escape') fechar();
+  });
+  let x0 = null;
+  addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+  addEventListener('touchend', (e) => {
+    if (x0 === null || grade.classList.contains('aberta')) return;
+    const dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 45) ir(dx < 0 ? atual + 1 : atual - 1);
+  });
+  addEventListener('hashchange', () => ir(parseInt(location.hash.slice(1)), false));
+  ir(parseInt(location.hash.slice(1)) || 1, false);
+})();
+</script>
+</body>
+</html>
