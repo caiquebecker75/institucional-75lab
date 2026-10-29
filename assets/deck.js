@@ -224,11 +224,11 @@
     }));
   })();
 
-  /* (14) tecnologia: cada aba mostra a ferramenta */
+  /* painel de gestão: cada aba mostra uma visão */
   (function(){
-    const bs=$$('.s-tec .abas-t button'),ps=$$('.s-tec .painel-t');
-    bs.forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();bs.forEach(x=>x.classList.toggle('on',x===b));ps.forEach(p=>p.classList.toggle('on',p.dataset.a===b.dataset.a));}));
-    roteiro('s-tec',{itens:()=>bs,texto:k=>ps[k].textContent,extra:1500});
+    const bs=$$('.s-pain .abas-p button'),ims=$$('.s-pain .quadro img'),url=$('#painelUrl');
+    bs.forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();bs.forEach(x=>x.classList.toggle('on',x===b));ims.forEach(m=>{const on=m.dataset.a===b.dataset.a;m.classList.toggle('on',on);if(on)url.textContent=m.dataset.url;});}));
+    roteiro('s-pain',{itens:()=>bs,texto:k=>bs[k].textContent,extra:2500});
   })();
 
   /* temporizador: os botões abrem sozinhos, um de cada vez, com tempo para ler;

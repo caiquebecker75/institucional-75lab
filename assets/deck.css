@@ -649,9 +649,8 @@ body.tem-mouse.clicou #anel{transform:scale(.8)}
 .s-met .caminho path{fill:none;stroke:var(--linha-e);stroke-width:3;stroke-dasharray:4 10}
 .s-met .viajante{fill:var(--lime)}
 .s-met .estacoes{list-style:none;position:absolute;left:72px;top:0;width:1456px;height:900px}
-.s-met .estacoes li{position:absolute;width:200px;padding:16px 16px 18px;background:var(--ink-3);border-top:5px solid var(--teal-2);transform:translateY(-50%)}
-.s-met .estacoes li.anima{transform:translateY(calc(-50% + 26px))}
-.tela.ativa.s-met .estacoes li.anima{transform:translateY(-50%);transition-delay:calc(.3s + var(--i) * .14s)}
+.s-met .estacoes li{position:absolute;width:200px;padding:16px 16px 18px;background:var(--ink-3);border-top:5px solid var(--teal-2)}
+.tela.ativa.s-met .estacoes li.anima{transition-delay:calc(.3s + var(--i) * .14s)}
 .s-met .estacoes li.fim{background:var(--lime);color:var(--ink);border-color:var(--ink)}
 .s-met .estacoes i{font-style:normal;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--lime)}
 .s-met .estacoes li.fim i{color:var(--ink)}
@@ -749,9 +748,12 @@ body.tem-mouse.clicou #anel{transform:scale(.8)}
 .s-gon .mais{position:absolute;right:72px;top:254px}
 
 /* ---------- 13 depoimento (quem-somos.css .s-dep) ---------- */
-.s-dep .fila{grid-template-columns:repeat(5,1fr)}
+.s-dep .fila{grid-template-columns:repeat(5,minmax(0,1fr))}
 .s-dep .videos{width:860px}
-.s-dep .videos .cta{position:static;margin-bottom:10px}
+.s-dep .videos>.eyebrow{display:inline-block;margin:0 14px 10px 0;vertical-align:middle}
+.s-dep .videos .cta{position:static;vertical-align:middle;margin-bottom:10px}
+.s-dep .vid{min-width:0}
+.s-dep .vid b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .s-dep .outro{position:absolute;left:72px;top:760px;width:860px;display:flex;align-items:baseline;gap:16px;padding-top:12px;border-top:3px solid var(--ink)}
 .s-dep .outro q{font-family:var(--titulo);font-weight:900;font-size:26px;text-transform:uppercase;line-height:1.05}
 .s-dep .outro span{flex:none;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
@@ -828,3 +830,113 @@ body.tem-mouse.clicou #anel{transform:scale(.8)}
 /* PDF: chamadas de clique saem; o que gira fica parado */
 .pdf .s-capa .col{animation:none!important}
 .pdf .s-met .viajante{display:none}
+
+/* ---------- engenharia ---------- */
+.s-eng{background-color:var(--ink-2);background-image:linear-gradient(rgba(6,198,174,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(6,198,174,.07) 1px,transparent 1px);background-size:40px 40px}
+.s-eng .eyebrow{position:absolute;left:72px;top:118px}
+.s-eng h2{position:absolute;left:72px;top:146px;font-size:68px;width:1400px}
+.s-eng .lead{position:absolute;left:72px;top:236px;width:820px;font-size:17px;opacity:.85}
+.s-eng .esteira-eng{list-style:none;position:absolute;left:72px;right:72px;top:316px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.s-eng .esteira-eng li{position:relative;background:var(--ink);border:2px solid var(--linha-e);padding:14px 14px 16px;transition:transform .2s,border-color .2s}
+.s-eng .esteira-eng li:hover{transform:translateY(-4px);border-color:var(--lime)}
+.s-eng .esteira-eng li:not(:last-child)::after{content:'→';position:absolute;right:-19px;top:120px;font-size:20px;color:var(--lime);z-index:2}
+.s-eng .esteira-eng .n{position:absolute;left:14px;top:14px;z-index:2;font-family:var(--mono);font-size:11px;font-weight:700;background:var(--lime);color:var(--ink);padding:3px 7px}
+.s-eng figure{height:250px;margin:0 0 12px;background:#fff;display:grid;place-items:center;overflow:hidden}
+.s-eng figure img{width:100%;height:100%;object-fit:contain;display:block}
+.s-eng figure.folha{padding:8px}
+.s-eng .esteira-eng b{display:block;font-family:var(--titulo);font-weight:900;font-size:26px;text-transform:uppercase;line-height:1}
+.s-eng .esteira-eng p{font-size:14.5px;line-height:1.42;opacity:.8;margin-top:6px}
+.s-eng .esteira-eng p strong{color:var(--lime)}
+.s-eng .cta{left:72px;top:690px}
+.s-eng .regras-eng{position:absolute;left:72px;right:72px;top:738px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.s-eng .regras-eng div{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.35;padding-top:10px;border-top:2px solid var(--linha-e)}
+.s-eng .regras-eng .ic{color:var(--lime)}
+
+/* ---------- projetos no ar ---------- */
+.s-links .eyebrow{position:absolute;left:72px;top:118px}
+.s-links h2{position:absolute;left:72px;top:146px;font-size:72px}
+.s-links .lead{position:absolute;left:72px;top:236px;width:700px;font-size:17px}
+.s-links .cta{right:72px;top:236px}
+.s-links .cartoes-l{position:absolute;left:72px;right:72px;top:296px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.s-links .cartoes-l a{position:relative;display:flex;flex-direction:column;background:#fff;border:2px solid var(--linha-c);text-decoration:none;color:var(--ink);transition:transform .2s,box-shadow .2s}
+.s-links .cartoes-l a:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--ink)}
+.s-links .nav-b{height:22px;display:flex;align-items:center;gap:5px;padding:0 10px;background:var(--ink)}
+.s-links .nav-b i{width:7px;height:7px;border-radius:50%;background:var(--ink-4)}
+.s-links .cartoes-l img{width:100%;height:150px;object-fit:cover;object-position:top;display:block}
+.s-links .tag{position:absolute;left:10px;top:34px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--lime);color:var(--ink);padding:4px 8px}
+.s-links .cartoes-l b{font-family:var(--titulo);font-weight:900;font-size:23px;text-transform:uppercase;line-height:1.05;padding:12px 14px 2px}
+.s-links .cartoes-l em{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--teal);padding:0 14px 12px}
+.s-links .cartoes-l em::after{content:' ↗';font-family:var(--corpo)}
+
+/* ---------- realidade aumentada ---------- */
+.s-ar .eyebrow{position:absolute;left:72px;top:118px}
+.s-ar h2{position:absolute;left:72px;top:146px;font-size:62px;width:1400px}
+.s-ar .ar-lado{position:absolute;left:72px;top:260px;width:390px;display:flex;flex-direction:column;gap:22px}
+.s-ar .ar-lado .lead{font-size:16.5px}
+.s-ar .conta-ar .num{display:block;font-size:110px;line-height:.86;color:var(--teal)}
+.s-ar .conta-ar span{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.s-ar .qr-ar{display:flex;gap:16px;align-items:center;background:var(--ink);color:var(--paper);padding:14px;text-decoration:none;transition:transform .2s}
+.s-ar .qr-ar:hover{transform:translate(-3px,-3px)}
+.s-ar .qr-ar img{width:110px;height:110px;display:block}
+.s-ar .qr-ar span{font-size:14px;line-height:1.4}
+.s-ar .qr-ar b{display:block;font-family:var(--titulo);font-weight:900;font-size:24px;text-transform:uppercase;color:var(--lime)}
+.s-ar .cta{left:500px;top:262px}
+.s-ar .vitrine-ar{position:absolute;left:500px;right:72px;top:304px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.s-ar .vitrine-ar a{position:relative;display:flex;flex-direction:column;background:linear-gradient(#fff,var(--paper-2));border:2px solid var(--linha-c);text-decoration:none;color:var(--ink);padding:10px 12px 12px;transition:transform .2s,box-shadow .2s}
+.s-ar .vitrine-ar a:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--teal)}
+.s-ar .vitrine-ar a::before{content:'AR';position:absolute;right:8px;top:8px;font-family:var(--mono);font-size:10px;font-weight:700;background:var(--teal);color:#fff;padding:3px 6px}
+.s-ar .vitrine-ar img{width:100%;height:170px;object-fit:contain;display:block;filter:drop-shadow(0 10px 10px rgba(5,5,5,.18))}
+.s-ar .vitrine-ar b{font-family:var(--titulo);font-weight:900;font-size:19px;text-transform:uppercase;line-height:1.05;margin-top:6px}
+.s-ar .vitrine-ar span{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;opacity:.7}
+
+/* ---------- rastreamento com QR ---------- */
+.s-qr .eyebrow{position:absolute;left:72px;top:118px}
+.s-qr h2{position:absolute;left:72px;top:146px;font-size:62px;width:1100px}
+.s-qr .jornada{list-style:none;position:absolute;left:72px;top:318px;width:1000px;display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.s-qr .jornada li{position:relative}
+.s-qr .jornada li:not(:last-child)::after{content:'';position:absolute;left:calc(100% - 6px);top:140px;width:38px;height:3px;background:repeating-linear-gradient(90deg,var(--lime) 0 6px,transparent 6px 10px)}
+.s-qr .jornada .n{position:absolute;left:-8px;top:-8px;z-index:2;font-family:var(--mono);font-size:11px;font-weight:700;background:var(--lime);color:var(--ink);padding:4px 8px}
+.s-qr .cel{width:100%;height:300px;background:#000;border-radius:26px;padding:8px;box-shadow:0 0 0 2px var(--ink-4)}
+.s-qr .cel img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:19px;display:block}
+.s-qr .jornada b{display:block;font-family:var(--titulo);font-weight:900;font-size:26px;text-transform:uppercase;margin:14px 0 4px}
+.s-qr .jornada p{font-size:14.5px;line-height:1.42;opacity:.8}
+.s-qr .tecnos{position:absolute;left:1120px;right:72px;top:318px;display:flex;flex-direction:column;gap:14px}
+.s-qr .tecnos div{background:var(--ink-3);padding:18px 20px;border-left:6px solid var(--lime)}
+.s-qr .tecnos div:nth-child(2){border-color:var(--teal-2)}
+.s-qr .tecnos .tag{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--lime)}
+.s-qr .tecnos div:nth-child(2) .tag{color:var(--teal-2)}
+.s-qr .tecnos b{display:block;font-family:var(--titulo);font-weight:900;font-size:28px;text-transform:uppercase;line-height:1.04;margin:4px 0 6px}
+.s-qr .tecnos p{font-size:14.5px;line-height:1.45;opacity:.85}
+.s-qr .tecnos .botao{align-self:flex-start;margin-top:6px}
+
+/* ---------- painel de gestão ---------- */
+.s-pain .eyebrow{position:absolute;left:72px;top:118px}
+.s-pain h2{position:absolute;left:72px;top:146px;font-size:68px;width:520px}
+.s-pain .abas-p{position:absolute;left:72px;top:330px;width:420px;display:flex;flex-direction:column;gap:10px}
+.s-pain .abas-p button{position:relative;text-align:left;padding:14px 18px;background:#fff;border:2px solid var(--linha-c);overflow:hidden;transition:background .2s,color .2s,transform .2s}
+.s-pain .abas-p button:hover{transform:translateX(4px)}
+.s-pain .abas-p button b{display:block;font-family:var(--titulo);font-weight:900;font-size:26px;text-transform:uppercase;line-height:1}
+.s-pain .abas-p button span{display:block;font-size:13.5px;line-height:1.35;opacity:.75;margin-top:4px}
+.s-pain .abas-p button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.s-pain .abas-p button.on b{color:var(--lime)}
+.s-pain .cta{left:72px;top:740px}
+.s-pain .tela-p{position:absolute;left:530px;right:72px;top:118px;height:680px;background:var(--ink);padding:0 0 10px;box-shadow:14px 14px 0 var(--teal)}
+.s-pain .tela-p .nav-b{height:36px;display:flex;align-items:center;gap:7px;padding:0 14px;background:var(--ink-3);color:var(--paper)}
+.s-pain .tela-p .nav-b i{width:10px;height:10px;border-radius:50%;background:var(--ink-4)}
+.s-pain .tela-p .nav-b span{margin-left:12px;font-family:var(--mono);font-size:11px;opacity:.65}
+.s-pain .tela-p .nav-b em{margin-left:auto;font-style:normal;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--lime)}
+.s-pain .quadro{position:relative;height:634px;margin:0 10px;overflow:hidden;background:#fff}
+.s-pain .quadro img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block;opacity:0;transition:opacity .4s}
+.s-pain .quadro img.on{opacity:1}
+
+/* ---------- Ariuno (antiga tela de tecnologia) ---------- */
+.s-tec h2{width:660px}
+.s-tec .itens-a{position:absolute;left:72px;top:380px;width:560px;display:flex;flex-direction:column;gap:14px}
+.s-tec .itens-a>div{display:flex;gap:16px;align-items:flex-start;background:#fff;padding:16px 18px;border-left:6px solid var(--teal)}
+.s-tec .itens-a .ic{color:var(--teal)}
+.s-tec .itens-a b{display:block;font-family:var(--titulo);font-weight:900;font-size:24px;text-transform:uppercase;line-height:1.05}
+.s-tec .itens-a span{display:block;font-size:15px;line-height:1.45;margin-top:3px}
+.s-tec .vitrine-t{height:640px}
+.s-tec .vitrine-t .painel-t>img{height:602px}
+.s-tec h2{width:540px;font-size:58px}
+.s-tec .itens-a{top:410px}
